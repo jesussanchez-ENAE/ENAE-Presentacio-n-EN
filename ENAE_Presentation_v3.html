@@ -559,54 +559,79 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0d0d0d;font-family:
      S5 · LIVING IN MURCIA
 ═══════════════════════════════════════ -->
 <div class="s" id="s5">
-  <div class="photo photo-overlay-dark" style="background-image:url('src/spain/fondo_playa.png');"></div>
-  <div class="flex h-full w-full px-16 py-[80px] relative z-10 flex-col">
-    <div class="mb-10">
-      <h1 class="text-[70px] leading-[0.9] text-white/90 drop-shadow-lg tm">
-        <l class="text-[28px] uppercase tracking-widest mb-2">Living in</l>
-        <b>Murcia, Spain</b>
-      </h1>
-      <div class="acc"></div>
+  <!-- Full-bleed photo, warm Mediterranean treatment (no flat dark overlay) -->
+  <div class="photo" style="background-image:url('src/spain/fondo_playa.png');background-position:center 30%;"></div>
+  <!-- Editorial gradient: deep ENAE black on the left → translucent warm light on the right -->
+  <div style="position:absolute;inset:0;background:linear-gradient(95deg, var(--N2) 0%, rgba(22,26,25,0.95) 38%, rgba(22,26,25,0.6) 62%, rgba(168,24,50,0.18) 100%);z-index:1"></div>
+  <!-- Soft ENAE watermark, bottom-right corner -->
+  <img src="src/logos/SIMBOLO-ENAE-BLANCO.png" class="wm" style="font-size:520px;right:-90px;bottom:-110px;height:1em;width:auto;opacity:0.05;transform:rotate(-12deg)" alt="E">
+
+  <div style="position:relative;z-index:2;height:100%;padding:60px 80px;display:flex;flex-direction:column;justify-content:space-between">
+
+    <!-- Top row: title block + editorial dateline -->
+    <div style="display:flex;justify-content:space-between;align-items:flex-start">
+      <div>
+        <p class="ey">A Place to Live</p>
+        <div class="tm">
+          <i style="font-size:60px">Living in</i>
+          <b style="font-size:144px;letter-spacing:-0.025em;margin-top:-6px">Murcia</b>
+        </div>
+      </div>
+      <div style="text-align:right;padding-top:18px">
+        <div style="font-family:var(--fS);font-style:italic;font-size:14px;color:rgba(255,255,255,0.55);letter-spacing:0.04em">SOUTHEASTERN SPAIN</div>
+        <div style="font-family:var(--fB);font-weight:700;font-size:11px;color:rgba(255,255,255,0.4);letter-spacing:0.3em;margin-top:8px">37.99° N · 1.13° W</div>
+      </div>
     </div>
-    <div class="grid grid-cols-2 gap-8 flex-1">
-       <div class="flex flex-col gap-6">
-          <div class="card-glass">
-             <h2 class="text-[22px] font-bold text-white flex items-center gap-3 mb-3" style="font-family: var(--fB);">
-                <div class="w-[8px] h-[8px] bg-[var(--G)] rounded-full"></div> Location
-             </h2>
-             <p class="text-[16px] text-white/80 leading-relaxed" style="font-family: var(--fS);">
-                Accessible by car, train, or plane. Located 3.5h from Madrid with its own international airport and high-speed train connections to major cities.
-             </p>
-          </div>
-          <div class="card-glass">
-             <h2 class="text-[22px] font-bold text-white flex items-center gap-3 mb-3" style="font-family: var(--fB);">
-                <div class="w-[8px] h-[8px] bg-[var(--G)] rounded-full"></div> About Murcia...
-             </h2>
-             <p class="text-[16px] text-white/80 leading-relaxed" style="font-family: var(--fS);">
-                Boasts the best climate in Spain with over 300 days of sunshine a year. Ideal for outdoor activities, hiking, biking, and water sports near the Mediterranean Sea.
-             </p>
-          </div>
-       </div>
-       <div class="flex flex-col gap-6">
-          <div class="card-glass">
-             <h2 class="text-[22px] font-bold text-white flex items-center gap-3 mb-3" style="font-family: var(--fB);">
-                <div class="w-[8px] h-[8px] bg-[var(--G)] rounded-full"></div> Facilities
-             </h2>
-             <p class="text-[16px] text-white/80 leading-relaxed" style="font-family: var(--fS);">
-                A modern 2,200 sqm campus equipped with state-of-the-art technology, library, and resources to support academic needs in a vibrant university city.
-             </p>
-          </div>
-          <div class="card-n">
-             <h3 class="text-[20px] font-bold text-[var(--G)] mb-4" style="font-family: var(--fB);">Practical Info</h3>
-             <ul class="text-[15px] text-white/80 space-y-3" style="font-family: var(--fS);">
-                <li class="flex justify-between border-b border-white/10 pb-2"><span>Currency</span> <b>Euro (€)</b></li>
-                <li class="flex justify-between border-b border-white/10 pb-2"><span>Business Hours</span> <b>9am-1:30pm & 4:30pm-8pm</b></li>
-                <li class="flex justify-between border-b border-white/10 pb-2"><span>Electricity</span> <b>220 volts</b></li>
-                <li class="flex justify-between"><span>Cost of Living</span> <b>700€ - 1000€/month</b></li>
-             </ul>
-          </div>
-       </div>
+
+    <!-- Middle: pull-quote + 3 hero stats -->
+    <div style="display:flex;flex-direction:column;gap:48px;max-width:1000px">
+      <div class="acc" style="margin:0;width:64px;height:3px"></div>
+      <p style="font-family:var(--fS);font-style:italic;font-size:34px;color:rgba(255,255,255,0.92);line-height:1.28;letter-spacing:-0.005em;max-width:860px">
+        Three hundred days of Mediterranean sun. A baroque city centre at coffee distance from a high-speed station. A campus built for students.
+      </p>
+
+      <div style="display:grid;grid-template-columns:repeat(3,auto);gap:64px;align-items:end">
+        <div>
+          <div style="font-family:var(--fB);font-weight:800;font-size:96px;color:var(--W);line-height:0.9;letter-spacing:-0.028em">300</div>
+          <div style="font-family:var(--fS);font-style:italic;font-size:17px;color:rgba(255,255,255,0.65);margin-top:12px;letter-spacing:0.02em">days of sun per year</div>
+        </div>
+        <div style="border-left:1px solid rgba(255,255,255,0.14);padding-left:48px">
+          <div style="font-family:var(--fB);font-weight:800;font-size:96px;color:var(--W);line-height:0.9;letter-spacing:-0.028em">20<span style="font-size:48px;font-weight:700;color:rgba(255,255,255,0.55);margin-left:4px;letter-spacing:0">°C</span></div>
+          <div style="font-family:var(--fS);font-style:italic;font-size:17px;color:rgba(255,255,255,0.65);margin-top:12px;letter-spacing:0.02em">average annual temperature</div>
+        </div>
+        <div style="border-left:1px solid rgba(255,255,255,0.14);padding-left:48px">
+          <div style="font-family:var(--fB);font-weight:800;font-size:96px;color:var(--W);line-height:0.9;letter-spacing:-0.028em">3.5<span style="font-size:48px;font-weight:700;color:rgba(255,255,255,0.55);margin-left:4px;letter-spacing:0">h</span></div>
+          <div style="font-family:var(--fS);font-style:italic;font-size:17px;color:rgba(255,255,255,0.65);margin-top:12px;letter-spacing:0.02em">from Madrid by high-speed train</div>
+        </div>
+      </div>
     </div>
+
+    <!-- Bottom: two editorial blocks (The Experience · Practical Info) -->
+    <div style="display:grid;grid-template-columns:1.1fr 1fr;gap:80px;border-top:1px solid rgba(255,255,255,0.12);padding-top:32px">
+      <div>
+        <div style="display:flex;align-items:center;gap:14px;margin-bottom:18px">
+          <div style="width:28px;height:1px;background:var(--G)"></div>
+          <h2 style="font-family:var(--fB);font-weight:700;font-size:13px;color:var(--W);letter-spacing:0.32em;text-transform:uppercase">The Experience</h2>
+        </div>
+        <p style="font-family:var(--fS);font-size:17px;color:rgba(255,255,255,0.82);line-height:1.55;max-width:560px">
+          Beaches twenty minutes from the lecture hall. Tapas at midnight in the Plaza de las Flores. A vibrant university city of 460,000 — affordable, walkable, and rooted in the slow Mediterranean rhythm that makes a year of study feel like a chapter of life.
+        </p>
+      </div>
+      <div>
+        <div style="display:flex;align-items:center;gap:14px;margin-bottom:18px">
+          <div style="width:28px;height:1px;background:var(--G)"></div>
+          <h2 style="font-family:var(--fB);font-weight:700;font-size:13px;color:var(--W);letter-spacing:0.32em;text-transform:uppercase">Practical Info</h2>
+        </div>
+        <dl style="display:grid;grid-template-columns:auto 1fr;column-gap:24px;row-gap:10px;font-family:var(--fB);font-size:15px">
+          <dt style="color:rgba(255,255,255,0.5);font-weight:400">Currency</dt>           <dd style="color:var(--W);font-weight:700">Euro (€)</dd>
+          <dt style="color:rgba(255,255,255,0.5);font-weight:400">Business hours</dt>     <dd style="color:var(--W);font-weight:700">9–13:30 · 16:30–20</dd>
+          <dt style="color:rgba(255,255,255,0.5);font-weight:400">Electricity</dt>        <dd style="color:var(--W);font-weight:700">220 V · Type F</dd>
+          <dt style="color:rgba(255,255,255,0.5);font-weight:400">Cost of living</dt>     <dd style="color:var(--W);font-weight:700">€700 – €1,000 / month</dd>
+          <dt style="color:rgba(255,255,255,0.5);font-weight:400">Campus</dt>             <dd style="color:var(--W);font-weight:700">2,200 m² · Universitario de Espinardo</dd>
+        </dl>
+      </div>
+    </div>
+
   </div>
 </div>
 
@@ -614,45 +639,89 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0d0d0d;font-family:
      S6 · REGION OF MURCIA
 ═══════════════════════════════════════ -->
 <div class="s" id="s6">
-  <div class="photo photo-fade-l" style="background-image:url('src/spain/tourists-admiring-murcia-cathedral-facade-after-sh-2025-04-29-02-35-42-utc.jpg'); background-position: center right;"></div>
-  <div class="flex h-full w-full px-16 py-[80px] relative z-10 flex-col">
-    <div class="w-7/12 h-full flex flex-col justify-center">
-       <h1 class="text-[75px] leading-[0.95] text-white/90 drop-shadow-lg tm mb-8">
-          <l class="text-[26px] uppercase tracking-widest mb-2">Region of Murcia</l>
-          <b>Where the Sun<br><span style="color:var(--G);">Never Hides</span></b>
-       </h1>
-       <div class="acc mb-10"></div>
-       <h2 class="text-[26px] font-normal text-white/80 mb-10 italic" style="font-family: var(--fB);">
+  <!-- Full-bleed cathedral photo, no flat overlay -->
+  <div class="photo" style="background-image:url('src/spain/tourists-admiring-murcia-cathedral-facade-after-sh-2025-04-29-02-35-42-utc.jpg');background-position:center 35%;background-size:cover;"></div>
+  <!-- Editorial gradient: dark left, photo readable right, dark bottom band for triptych -->
+  <div style="position:absolute;inset:0;background:linear-gradient(95deg, var(--N2) 0%, rgba(22,26,25,0.92) 32%, rgba(22,26,25,0.38) 58%, rgba(22,26,25,0.18) 100%);z-index:1"></div>
+  <!-- Bottom band fade for triptych readability -->
+  <div style="position:absolute;left:0;right:0;bottom:0;height:46%;background:linear-gradient(180deg, transparent 0%, rgba(15,16,16,0.55) 30%, rgba(10,11,11,0.96) 100%);z-index:1"></div>
+  <!-- ENAE watermark subtle -->
+  <img src="src/logos/SIMBOLO-ENAE-BLANCO.png" class="wm" style="font-size:480px;right:-80px;top:-80px;height:1em;width:auto;opacity:0.06;transform:rotate(8deg)" alt="E">
+
+  <div style="position:relative;z-index:2;height:100%;padding:60px 80px 50px;display:flex;flex-direction:column;justify-content:space-between">
+
+    <!-- Top row: title block + chapter mark -->
+    <div style="display:flex;justify-content:space-between;align-items:flex-start">
+      <div style="max-width:1000px">
+        <p class="ey">Region of Murcia</p>
+        <div class="tm">
+          <b style="font-size:104px;letter-spacing:-0.02em;line-height:0.95">Where the Sun</b>
+          <i style="font-size:104px;letter-spacing:-0.015em;line-height:1.0;color:var(--G);margin-top:-4px">Never Hides</i>
+        </div>
+        <div class="acc" style="margin:28px 0 24px;width:64px;height:3px"></div>
+        <p style="font-family:var(--fS);font-style:italic;font-size:28px;color:rgba(255,255,255,0.86);line-height:1.35;max-width:720px;letter-spacing:-0.005em">
           Live it. Feel its energy. Discover Murcia.
-       </h2>
-       
-       <div class="space-y-6">
-          <div class="card-g">
-             <h3 class="text-[20px] font-bold text-white flex items-center gap-3 mb-2" style="font-family: var(--fB);">
-                <div class="w-[8px] h-[8px] bg-[var(--G)] rounded-full"></div> Costa Cálida: Over 250 km of Sea and Life
-             </h3>
-             <p class="text-[16px] text-white/70 ml-5" style="font-family: var(--fS);">
-                Unique beaches, unspoiled coves, diving in Cabo de Palos, sailing, and exquisite coastal cuisine.
-             </p>
-          </div>
-          <div class="card-g">
-             <h3 class="text-[20px] font-bold text-white flex items-center gap-3 mb-2" style="font-family: var(--fB);">
-                <div class="w-[8px] h-[8px] bg-[var(--G)] rounded-full"></div> Adventure and Fresh Air Among the Peaks
-             </h3>
-             <p class="text-[16px] text-white/70 ml-5" style="font-family: var(--fS);">
-                Scenic trails, viewpoints, outdoor adventures, and charming villages like Moratalla and Caravaca.
-             </p>
-          </div>
-          <div class="card-g">
-             <h3 class="text-[20px] font-bold text-white flex items-center gap-3 mb-2" style="font-family: var(--fB);">
-                <div class="w-[8px] h-[8px] bg-[var(--G)] rounded-full"></div> A Region Full of Experiences
-             </h3>
-             <p class="text-[16px] text-white/70 ml-5" style="font-family: var(--fS);">
-                Wine tourism, gastronomy, traditional festivals, Roman heritage in Cartagena, and the baroque charm of Murcia city.
-             </p>
-          </div>
-       </div>
+        </p>
+      </div>
+      <div style="text-align:right;padding-top:18px;flex-shrink:0">
+        <div style="font-family:var(--fS);font-style:italic;font-size:14px;color:rgba(255,255,255,0.6);letter-spacing:0.04em">CHAPTER · 02</div>
+        <div style="font-family:var(--fB);font-weight:700;font-size:11px;color:rgba(255,255,255,0.42);letter-spacing:0.3em;margin-top:8px">THE REGION</div>
+      </div>
     </div>
+
+    <!-- Bottom triptych: Sea · Peaks · Heritage -->
+    <div>
+      <!-- Triptych divider label -->
+      <div style="display:flex;align-items:center;gap:18px;margin-bottom:28px">
+        <div style="width:36px;height:1px;background:rgba(255,255,255,0.4)"></div>
+        <span style="font-family:var(--fB);font-weight:700;font-size:11px;color:rgba(255,255,255,0.65);letter-spacing:0.42em;text-transform:uppercase">Three Worlds · One Region</span>
+        <div style="flex:1;height:1px;background:rgba(255,255,255,0.12)"></div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid rgba(255,255,255,0.1);padding-top:30px">
+
+        <!-- Sea -->
+        <div style="padding:0 40px 0 0;border-right:1px solid rgba(255,255,255,0.1)">
+          <div style="font-family:var(--fB);font-weight:700;font-size:11px;color:var(--G);letter-spacing:0.36em;text-transform:uppercase;margin-bottom:14px">01 · The Sea</div>
+          <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:8px">
+            <span style="font-family:var(--fB);font-weight:800;font-size:64px;color:var(--W);line-height:0.92;letter-spacing:-0.025em">250</span>
+            <span style="font-family:var(--fB);font-weight:700;font-size:22px;color:rgba(255,255,255,0.6);letter-spacing:-0.01em">km</span>
+          </div>
+          <h3 style="font-family:var(--fB);font-weight:700;font-size:21px;color:var(--W);line-height:1.2;letter-spacing:-0.005em;margin-bottom:10px">Costa Cálida</h3>
+          <p style="font-family:var(--fS);font-size:16px;color:rgba(255,255,255,0.72);line-height:1.5">
+            Unique beaches, unspoiled coves, diving in Cabo de Palos, sailing, and exquisite coastal cuisine.
+          </p>
+        </div>
+
+        <!-- Peaks -->
+        <div style="padding:0 40px;border-right:1px solid rgba(255,255,255,0.1)">
+          <div style="font-family:var(--fB);font-weight:700;font-size:11px;color:var(--G);letter-spacing:0.36em;text-transform:uppercase;margin-bottom:14px">02 · The Peaks</div>
+          <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:8px">
+            <span style="font-family:var(--fB);font-weight:800;font-size:64px;color:var(--W);line-height:0.92;letter-spacing:-0.025em">6</span>
+            <span style="font-family:var(--fB);font-weight:700;font-size:22px;color:rgba(255,255,255,0.6);letter-spacing:-0.01em">natural parks</span>
+          </div>
+          <h3 style="font-family:var(--fB);font-weight:700;font-size:21px;color:var(--W);line-height:1.2;letter-spacing:-0.005em;margin-bottom:10px">Inland Adventure</h3>
+          <p style="font-family:var(--fS);font-size:16px;color:rgba(255,255,255,0.72);line-height:1.5">
+            Scenic trails, viewpoints, outdoor adventures, and charming villages like Moratalla and Caravaca.
+          </p>
+        </div>
+
+        <!-- Heritage -->
+        <div style="padding:0 0 0 40px">
+          <div style="font-family:var(--fB);font-weight:700;font-size:11px;color:var(--G);letter-spacing:0.36em;text-transform:uppercase;margin-bottom:14px">03 · The Soul</div>
+          <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:8px">
+            <span style="font-family:var(--fB);font-weight:800;font-size:64px;color:var(--W);line-height:0.92;letter-spacing:-0.025em">2,000</span>
+            <span style="font-family:var(--fB);font-weight:700;font-size:22px;color:rgba(255,255,255,0.6);letter-spacing:-0.01em">years</span>
+          </div>
+          <h3 style="font-family:var(--fB);font-weight:700;font-size:21px;color:var(--W);line-height:1.2;letter-spacing:-0.005em;margin-bottom:10px">Living Heritage</h3>
+          <p style="font-family:var(--fS);font-size:16px;color:rgba(255,255,255,0.72);line-height:1.5">
+            Roman Cartagena, baroque Murcia, wine country, gastronomy, and traditional festivals woven into daily life.
+          </p>
+        </div>
+
+      </div>
+    </div>
+
   </div>
 </div>
 
