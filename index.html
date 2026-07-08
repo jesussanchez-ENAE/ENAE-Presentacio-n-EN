@@ -560,244 +560,185 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a0b0b;font-family:
 <!-- ══════════════════════════════════════
      S3 · RANKINGS (DOSSIER LAYOUT)
 ═══════════════════════════════════════ -->
-<div class="s relative" id="s3">
-  <!-- Background Image with Garnet Gradient Overlay -->
-  <div class="absolute inset-0 z-0 bg-[url('src/img/ENAE/_0N7A2272.JPG')] bg-center bg-cover"></div>
+<div class="s relative" id="s3" style="background:var(--G)">
+  <!-- Background with Image Overlay for texture -->
+  <div class="absolute inset-0 z-0 bg-[url('src/img/ENAE/_0N7A2272.JPG')] bg-center bg-cover mix-blend-multiply opacity-40"></div>
   <div class="absolute inset-0 z-0 bg-gradient-to-br from-[#3b0610]/95 via-[#5c0b1a]/90 to-[#8a122b]/85"></div>
 
-  <!-- Full vertical layout: HERO banner top + 2 columns below -->
-  <div class="h-full w-full px-24 pt-[54px] pb-[80px] relative z-10 flex flex-col">
-
-    <!-- HERO Banner — highlights the crown jewel -->
-    <div style="display:flex;align-items:center;gap:44px;padding:22px 32px 22px 0;border-bottom:1px solid rgba(255,255,255,0.15);margin-bottom:26px;position:relative">
-      <!-- Vertical angular signature on the far left -->
-      <div class="rule-angular vertical" style="height:96px;flex-shrink:0"><span class="frag f2"></span><span class="frag f3"></span></div>
-      <!-- Left: mini header -->
-      <div style="flex-shrink:0;padding-right:44px;border-right:1px solid rgba(255,255,255,0.12)">
-        <div style="font-family:var(--fB);font-weight:600;font-size:10px;color:rgba(255,255,255,0.55);letter-spacing:0.42em;text-transform:uppercase;margin-bottom:6px">Rankings 2025</div>
-        <div class="text-white" style="font-family:var(--fHeading);font-style:italic;font-weight:900;font-size:56px;line-height:0.9;letter-spacing:-0.02em">Ranked.</div>
-      </div>
-      <!-- Center: THE crown jewel -->
-      <div style="display:flex;align-items:baseline;gap:22px;flex:1">
-        <div style="display:flex;align-items:baseline">
-          <span style="font-family:var(--fS);font-style:italic;font-weight:400;font-size:36px;color:var(--G-hi);letter-spacing:-0.02em">#</span>
-          <span style="font-family:var(--fHeading);font-style:italic;font-weight:900;font-size:140px;color:var(--W);line-height:0.85;letter-spacing:-0.05em">3</span>
-        </div>
-        <div style="display:flex;flex-direction:column;gap:6px;padding-bottom:10px">
-          <div style="font-family:var(--fB);font-weight:600;font-size:10px;color:var(--G-hi);letter-spacing:0.42em;text-transform:uppercase">QS Global · Worldwide</div>
-          <div style="font-family:var(--fS);font-style:italic;font-weight:700;font-size:28px;color:var(--W);line-height:1.05;letter-spacing:-0.01em;max-width:520px">Master in International&nbsp;Trade</div>
-          <div style="font-family:var(--fB);font-weight:300;font-size:13px;color:rgba(255,255,255,0.55);letter-spacing:0.005em">Top-3 program in the world · QS Business Masters Rankings 2025</div>
-        </div>
-      </div>
-      <!-- Right: also-ranked micro-strip -->
-      <div style="flex-shrink:0;text-align:right;padding-left:36px;border-left:1px solid rgba(255,255,255,0.12)">
-        <div style="font-family:var(--fB);font-weight:600;font-size:9.5px;color:rgba(255,255,255,0.5);letter-spacing:0.42em;text-transform:uppercase;margin-bottom:14px">Also world-ranked</div>
-        <div style="display:flex;flex-direction:column;gap:8px">
-          <div style="display:flex;align-items:baseline;gap:10px;justify-content:flex-end">
-            <span style="font-family:var(--fHeading);font-style:italic;font-weight:900;font-size:26px;color:var(--W);line-height:1">#6</span>
-            <span style="font-family:var(--fB);font-weight:400;font-size:12px;color:rgba(255,255,255,0.6);letter-spacing:0.005em">Global Executive MBA · QS</span>
-          </div>
-          <div style="display:flex;align-items:baseline;gap:10px;justify-content:flex-end">
-            <span style="font-family:var(--fHeading);font-style:italic;font-weight:900;font-size:26px;color:var(--W);line-height:1">#6</span>
-            <span style="font-family:var(--fB);font-weight:400;font-size:12px;color:rgba(255,255,255,0.6);letter-spacing:0.005em">Logistics &amp; Operations · QS</span>
-          </div>
-          <div style="display:flex;align-items:baseline;gap:10px;justify-content:flex-end">
-            <span style="font-family:var(--fHeading);font-style:italic;font-weight:900;font-size:26px;color:var(--W);line-height:1">#10</span>
-            <span style="font-family:var(--fB);font-weight:400;font-size:12px;color:rgba(255,255,255,0.6);letter-spacing:0.005em">AI &amp; Data Science · QS</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Legacy grid layout below hero -->
-    <div class="flex w-full flex-1 relative mb-12">
-
+  <div class="h-full w-full px-12 pt-[40px] pb-[60px] relative z-10 flex gap-8">
+    
     <!-- LEFT COLUMN -->
-    <div class="w-[45%] flex flex-col pr-8">
-
-      <!-- Top header -->
-      <div class="flex justify-between items-start mb-4">
+    <div class="w-[45%] flex flex-col pl-4">
+      
+      <!-- Top Title -->
+      <div class="flex items-start justify-between mb-8">
         <div>
-          <div style="font-family:var(--fB);font-weight:600;font-size:11px;color:rgba(255,255,255,0.55);letter-spacing:0.42em;text-transform:uppercase;margin-bottom:6px">National Recognition</div>
-          <div class="leading-none text-white" style="font-family:var(--fS2);font-style:italic;font-weight:700;font-size:34px;letter-spacing:-0.015em">in Spain.</div>
+          <div style="font-family:var(--fB);font-weight:900;font-size:42px;color:var(--W);line-height:1;letter-spacing:-0.02em;text-shadow: 0 4px 12px rgba(0,0,0,0.3)">
+            <span style="color:var(--G-hi)">&gt;&gt;&gt;</span><br>
+            Rankings
+          </div>
+        </div>
+        <div style="font-family:var(--fS2);font-weight:800;font-style:italic;font-size:24px;color:var(--W);line-height:1.2;text-align:right;text-shadow: 0 2px 8px rgba(0,0,0,0.2)">
+          ENAE <span style="font-family:var(--fHeading);color:var(--G-hi)">is ranked<br>among the best<br>Business Schools</span>
         </div>
       </div>
 
       <!-- Forbes row -->
-      <div class="flex items-center justify-between mb-4">
-        <img src="src/Rankings/forbes.png" class="w-[280px]" alt="Forbes">
-        <div class="mr-8" style="font-family:var(--fS2);font-style:italic;font-weight:400;font-size:26px;color:rgba(255,255,255,0.55);letter-spacing:0.02em">Ranking 2025</div>
+      <div class="flex items-center justify-between mb-6 pt-2">
+        <img src="src/Rankings/forbes.png" class="w-[200px] drop-shadow-lg" alt="Forbes">
+        <div style="font-family:var(--fS2);font-weight:600;font-size:26px;color:rgba(255,255,255,0.7);letter-spacing:0.02em;text-shadow: 0 2px 4px rgba(0,0,0,0.5)">Ranking 2025</div>
       </div>
 
       <!-- Forbes Grid -->
-      <div class="grid grid-cols-2 gap-8 mb-6 glass-panel-3d-wrap">
-        <div class="glass-panel glass-panel-3d rounded-lg p-6 flex flex-col justify-center items-center text-center relative overflow-hidden" style="min-height: 140px;">
-          <div class="absolute inset-0 flex justify-center items-center text-[100px] font-black leading-none text-white/20 pointer-events-none" style="font-family: var(--fB);">#06</div>
-          <div class="relative z-10 font-bold text-[18px] text-white leading-tight mb-1" style="font-family: var(--fB);">Master in International Trade</div>
-          <div class="relative z-10 text-[14px] text-white italic mt-1" style="font-family: 'Open Sans', sans-serif;">Category: Recent graduates &<br>young professionals</div>
+      <div class="grid grid-cols-2 gap-5 mb-8 glass-panel-3d-wrap">
+        <div class="glass-panel glass-panel-3d rounded-xl p-5 relative flex flex-col justify-center text-center border border-white/10 shadow-2xl" style="min-height: 135px;">
+          <div class="absolute inset-0 flex justify-center items-center text-[110px] font-black leading-none text-white/10 pointer-events-none drop-shadow-md" style="font-family: var(--fB);">#06</div>
+          <div class="relative z-10 font-bold text-[16px] text-white leading-tight mb-1" style="font-family: var(--fB);">Master in International Trade</div>
+          <div class="relative z-10 text-[11px] text-white/80 italic mt-1" style="font-family: 'Open Sans', sans-serif;">Category: Recent graduates and<br>young professionals</div>
         </div>
-        <div class="glass-panel glass-panel-3d rounded-lg p-6 flex flex-col justify-center items-center text-center relative overflow-hidden" style="min-height: 140px;">
-          <div class="absolute inset-0 flex justify-center items-center text-[100px] font-black leading-none text-white/20 pointer-events-none" style="font-family: var(--fB);">#07</div>
-          <div class="relative z-10 font-bold text-[18px] text-white leading-tight mb-1" style="font-family: var(--fB);">Global Executive MBA</div>
-          <div class="relative z-10 text-[14px] text-white italic mt-1" style="font-family: 'Open Sans', sans-serif;">Category: Executive Programs</div>
+        <div class="glass-panel glass-panel-3d rounded-xl p-5 relative flex flex-col justify-center text-center border border-white/10 shadow-2xl" style="min-height: 135px;">
+          <div class="absolute inset-0 flex justify-center items-center text-[110px] font-black leading-none text-white/10 pointer-events-none drop-shadow-md" style="font-family: var(--fB);">#07</div>
+          <div class="relative z-10 font-bold text-[16px] text-white leading-tight mb-1" style="font-family: var(--fB);">Global Executive MBA</div>
+          <div class="relative z-10 text-[11px] text-white/80 italic mt-1" style="font-family: 'Open Sans', sans-serif;">Category: Executive Programmes</div>
         </div>
-        <div class="glass-panel glass-panel-3d rounded-lg p-6 flex flex-col justify-center items-center text-center relative overflow-hidden" style="min-height: 140px;">
-          <div class="absolute inset-0 flex justify-center items-center text-[100px] font-black leading-none text-white/20 pointer-events-none" style="font-family: var(--fB);">#12</div>
-          <div class="relative z-10 font-bold text-[18px] text-white leading-tight mb-1" style="font-family: var(--fB);">International MBA</div>
-          <div class="relative z-10 text-[14px] text-white italic mt-1" style="font-family: 'Open Sans', sans-serif;">Category: MBA</div>
+        <div class="glass-panel glass-panel-3d rounded-xl p-5 relative flex flex-col justify-center text-center border border-white/10 shadow-2xl" style="min-height: 135px;">
+          <div class="absolute inset-0 flex justify-center items-center text-[110px] font-black leading-none text-white/10 pointer-events-none drop-shadow-md" style="font-family: var(--fB);">#12</div>
+          <div class="relative z-10 font-bold text-[16px] text-white leading-tight mb-1" style="font-family: var(--fB);">International MBA</div>
+          <div class="relative z-10 text-[11px] text-white/80 italic mt-1" style="font-family: 'Open Sans', sans-serif;">Category: MBA</div>
         </div>
-        <div class="glass-panel glass-panel-3d rounded-lg p-6 flex flex-col justify-center items-center text-center relative overflow-hidden" style="min-height: 140px;">
-          <div class="absolute inset-0 flex justify-center items-center text-[100px] font-black leading-none text-white/20 pointer-events-none" style="font-family: var(--fB);">#04</div>
-          <div class="relative z-10 font-bold text-[18px] text-white leading-tight mb-1" style="font-family: var(--fB);">Magistrae</div>
-          <div class="relative z-10 text-[14px] text-white italic mt-1" style="font-family: 'Open Sans', sans-serif;">Category: Senior Management</div>
+        <div class="glass-panel glass-panel-3d rounded-xl p-5 relative flex flex-col justify-center text-center border border-white/10 shadow-2xl" style="min-height: 135px;">
+          <div class="absolute inset-0 flex justify-center items-center text-[110px] font-black leading-none text-white/10 pointer-events-none drop-shadow-md" style="font-family: var(--fB);">#04</div>
+          <div class="relative z-10 font-bold text-[16px] text-white leading-tight mb-1" style="font-family: var(--fB);">Magistrae</div>
+          <div class="relative z-10 text-[11px] text-white/80 italic mt-1" style="font-family: 'Open Sans', sans-serif;">Category: Senior Management</div>
         </div>
       </div>
 
       <!-- Financial Mag + El Mundo -->
-      <div class="grid grid-cols-2 gap-8 flex-1 mt-6">
-        <!-- Column 1: Logos & Star -->
-        <div class="flex flex-col gap-6 justify-between h-full">
-            <div class="bg-white rounded-lg p-3 flex items-center justify-center w-[85%]">
-                <img src="src/Rankings/FinancialMagazine.png" class="w-full" alt="Financial Magazine">
-            </div>
-            
-            <img src="src/Rankings/El_Mundo_logo.svg.png" class="w-[200px] filter brightness-0 invert" alt="El Mundo">
-            
-            <div class="flex items-center gap-4">
-                <svg class="w-14 h-14 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path></svg>
-                <div class="text-[20px] font-bold text-white leading-tight" style="font-family: var(--fB);">Best MBAs<br>in Spain</div>
-            </div>
+      <div class="flex flex-col gap-6 mt-2">
+        <div class="flex items-center gap-6 glass-panel rounded-xl p-3 border border-white/10 shadow-xl">
+          <div class="bg-white rounded p-2 flex items-center justify-center w-[160px] shadow-inner">
+            <img src="src/Rankings/FinancialMagazine.png" class="w-full" alt="Financial Magazine">
+          </div>
+          <div class="flex-1 leading-tight flex items-center gap-4">
+            <div class="text-[65px] font-black text-white/40 leading-none drop-shadow-lg" style="font-family: var(--fB);">#06</div>
+            <div class="text-white text-[15px] font-bold" style="font-family: var(--fB);">Best<br>Business Schools<br>in Spain</div>
+          </div>
         </div>
-
-        <!-- Column 2: Text & Numbers -->
-        <div class="flex flex-col justify-between h-full py-2">
-            <div>
-                <div class="text-[75px] font-black text-white/30 leading-none -mb-4 drop-shadow-xl" style="font-family: var(--fB);">#06</div>
-                <div class="text-white text-[19px] font-bold leading-tight drop-shadow-md" style="font-family: var(--fB);">Best<br>Business Schools<br>in Spain</div>
-            </div>
-
-            <div class="mt-8">
-                <div class="text-white/80 text-[18px] mb-2 font-bold drop-shadow-md" style="font-family: var(--fB);">Best Online Masters</div>
-                <div class="flex justify-between items-start gap-4 pr-12">
-                    <div>
-                        <div class="text-[60px] font-black text-white/30 leading-none -mb-2 drop-shadow-xl" style="font-family: var(--fB);">#02</div>
-                        <div class="text-white font-bold text-[15px] leading-[1.2] drop-shadow-md" style="font-family: var(--fB);">International<br>Trade</div>
-                    </div>
-                    <div>
-                        <div class="text-[60px] font-black text-white/30 leading-none -mb-2 drop-shadow-xl" style="font-family: var(--fB);">#04</div>
-                        <div class="text-white font-bold text-[13px] leading-[1.2] drop-shadow-md" style="font-family: var(--fB);">Master's Degree in<br>Agribusiness<br>Management</div>
-                    </div>
-                </div>
-            </div>
+        
+        <div class="flex items-start gap-6 mt-2 glass-panel rounded-xl p-4 border border-white/10 shadow-xl">
+          <img src="src/Rankings/El_Mundo_logo.svg.png" class="w-[160px] filter brightness-0 invert drop-shadow-lg" alt="El Mundo">
+          <div class="flex flex-col flex-1 pt-1 border-l border-white/20 pl-6">
+             <div class="text-white/80 text-[14px] font-bold mb-3 uppercase tracking-wider" style="font-family: var(--fB);">Best Online Master's 2025</div>
+             <div class="flex gap-8">
+               <div class="flex items-center gap-3">
+                  <div class="text-[55px] font-black text-white/40 leading-none drop-shadow-lg" style="font-family: var(--fB);">#02</div>
+                  <div class="text-white font-bold text-[13px] leading-[1.2]" style="font-family: var(--fB);">International<br>Trade</div>
+               </div>
+               <div class="flex items-center gap-3">
+                  <div class="text-[55px] font-black text-white/40 leading-none drop-shadow-lg" style="font-family: var(--fB);">#04</div>
+                  <div class="text-white font-bold text-[13px] leading-[1.2]" style="font-family: var(--fB);">Agribusiness<br>Management</div>
+               </div>
+             </div>
+          </div>
         </div>
       </div>
-
     </div>
 
-    <!-- Divider Spacer (Since background handles the gap) -->
-    <div class="w-[10%] h-full mx-4"></div>
-
     <!-- RIGHT COLUMN (QS) -->
-    <div class="w-[45%] flex flex-col pl-4 pr-16 pt-8">
+    <div class="w-[55%] flex flex-col pr-4 border-l border-white/10 pl-8">
       
       <!-- QS Top Stars -->
-      <div class="flex items-center gap-6 mb-8 mt-6">
-        <img src="src/Rankings/QS_5stars.png" class="h-[180px] drop-shadow-2xl" alt="QS Rated Excellent">
-        <div class="flex gap-4 items-center">
-            <img src="src/Rankings/QS_Arts.png" class="h-[80px] drop-shadow-xl" alt="QS Arts">
-            <img src="src/Rankings/QS_Inclusiveness.png" class="h-[80px] drop-shadow-xl" alt="QS Inclusiveness">
-            <img src="src/Rankings/QS_Master_logistic.png" class="h-[80px] drop-shadow-xl" alt="QS Master Logistic">
-            <img src="src/Rankings/QS_Teaching.png" class="h-[80px] drop-shadow-xl" alt="QS Teaching">
+      <div class="flex items-center gap-4 mb-6 justify-between bg-black/20 rounded-xl p-4 border border-white/5 shadow-inner">
+        <img src="src/Rankings/QS_5stars.png" class="h-[145px] drop-shadow-2xl hover:scale-105 transition-transform" alt="QS Rated Excellent">
+        <div class="flex gap-3 items-center">
+            <img src="src/Rankings/QS_Master_logistic.png" class="h-[75px] drop-shadow-lg hover:-translate-y-1 transition-transform" alt="QS Logistic">
+            <img src="src/Rankings/QS_Teaching.png" class="h-[75px] drop-shadow-lg hover:-translate-y-1 transition-transform" alt="QS Teaching">
+            <img src="src/Rankings/QS_Arts.png" class="h-[75px] drop-shadow-lg hover:-translate-y-1 transition-transform" alt="QS Arts">
+            <img src="src/Rankings/QS_Inclusiveness.png" class="h-[75px] drop-shadow-lg hover:-translate-y-1 transition-transform" alt="QS Inclusiveness">
         </div>
       </div>
 
       <!-- QS Grid -->
-      <div class="grid grid-cols-2 gap-x-8 gap-y-6 flex-1 glass-panel-3d-wrap">
-        
-        <!-- #10 IA -->
-        <div class="glass-panel glass-panel-3d rounded-lg p-4 flex items-center relative overflow-hidden" style="min-height: 120px;">
-          <div class="absolute right-0 top-[40%] -translate-y-1/2 text-[100px] font-black text-white/30 leading-none pointer-events-none" style="font-family: var(--fB);">#10</div>
-          <img src="src/Rankings/QS_IA_y_DataScience.png" class="h-[95px] mr-4 z-10" alt="QS IA">
-          <div class="z-10 mt-6">
-            <div class="text-white font-bold text-[16px] leading-[1.1]" style="font-family: var(--fB);">Master in<br>AI & Data Science</div>
-            <div class="text-white/80 text-[13px] mt-1" style="font-family: var(--fS);">Spain</div>
+      <div class="grid grid-cols-2 gap-4 flex-1 glass-panel-3d-wrap">
+        <!-- Row 1 -->
+        <div class="glass-panel glass-panel-3d rounded-lg p-3 flex items-center relative overflow-hidden shadow-xl" style="min-height: 105px; border-left: 4px solid var(--G-hi)">
+          <div class="absolute right-2 top-1 text-[85px] font-black text-white/10 leading-none pointer-events-none drop-shadow-md" style="font-family: var(--fB);">#10</div>
+          <img src="src/Rankings/QS_IA_y_DataScience.png" class="h-[85px] mr-3 z-10 drop-shadow-md" alt="QS IA">
+          <div class="z-10 mt-5">
+            <div class="text-white font-bold text-[13px] leading-[1.1] text-shadow" style="font-family: var(--fB);">Master in<br>IA & Data Science</div>
+            <div class="text-white/60 text-[11px] mt-1" style="font-family: var(--fS);">Spain</div>
           </div>
         </div>
 
-        <!-- #06 Logistica -->
-        <div class="glass-panel glass-panel-3d rounded-lg p-4 flex items-center relative overflow-hidden" style="min-height: 120px;">
-          <div class="absolute right-0 top-[40%] -translate-y-1/2 text-[100px] font-black text-white/30 leading-none pointer-events-none" style="font-family: var(--fB);">#06</div>
-          <img src="src/Rankings/QS_Logistica.png" class="h-[95px] mr-4 z-10" alt="QS Logistica">
-          <div class="z-10 mt-6">
-            <div class="text-white font-bold text-[16px] leading-[1.1]" style="font-family: var(--fB);">Master's Degree in<br>Logistics & Operations<br>Management</div>
-            <div class="text-white/80 text-[13px] mt-1" style="font-family: var(--fS);">Spain</div>
+        <div class="glass-panel glass-panel-3d rounded-lg p-3 flex items-center relative overflow-hidden shadow-xl" style="min-height: 105px; border-left: 4px solid var(--G-hi)">
+          <div class="absolute right-2 top-1 text-[85px] font-black text-white/10 leading-none pointer-events-none drop-shadow-md" style="font-family: var(--fB);">#06</div>
+          <img src="src/Rankings/QS_Logistica.png" class="h-[85px] mr-3 z-10 drop-shadow-md" alt="QS Supply Chain">
+          <div class="z-10 mt-5">
+            <div class="text-white font-bold text-[13px] leading-[1.1] text-shadow" style="font-family: var(--fB);">Master in Global<br>Supply Chain Mgmt.</div>
+            <div class="text-white/60 text-[11px] mt-1" style="font-family: var(--fS);">Spain</div>
           </div>
         </div>
 
-        <!-- #06 Global Exec MBA -->
-        <div class="glass-panel glass-panel-3d rounded-lg p-4 flex items-center relative overflow-hidden" style="min-height: 120px;">
-          <div class="absolute right-0 top-[40%] -translate-y-1/2 text-[100px] font-black text-white/30 leading-none pointer-events-none" style="font-family: var(--fB);">#06</div>
-          <img src="src/Rankings/QS_Global_Executive_MBA.png" class="h-[95px] mr-4 z-10" alt="QS Global Exec">
-          <div class="z-10 mt-6">
-            <div class="text-white font-bold text-[16px] leading-[1.1]" style="font-family: var(--fB);">Global<br>Executive MBA</div>
-            <div class="text-white/80 text-[13px] mt-1" style="font-family: var(--fS);">Spain</div>
+        <!-- Row 2 -->
+        <div class="glass-panel glass-panel-3d rounded-lg p-3 flex items-center relative overflow-hidden shadow-xl" style="min-height: 105px; border-left: 4px solid var(--G-hi)">
+          <div class="absolute right-2 top-1 text-[85px] font-black text-white/10 leading-none pointer-events-none drop-shadow-md" style="font-family: var(--fB);">#07</div>
+          <img src="src/Rankings/QS_Global_Executive_MBA.png" class="h-[85px] mr-3 z-10 drop-shadow-md" alt="QS Exec MBA">
+          <div class="z-10 mt-5">
+            <div class="text-white font-bold text-[13px] leading-[1.1] text-shadow" style="font-family: var(--fB);">Global<br>Executive MBA</div>
+            <div class="text-white/60 text-[11px] mt-1" style="font-family: var(--fS);">Spain</div>
           </div>
         </div>
 
-        <!-- #09 Marketing Digital -->
-        <div class="glass-panel glass-panel-3d rounded-lg p-4 flex items-center relative overflow-hidden" style="min-height: 120px;">
-          <div class="absolute right-0 top-[40%] -translate-y-1/2 text-[100px] font-black text-white/30 leading-none pointer-events-none" style="font-family: var(--fB);">#09</div>
-          <img src="src/Rankings/QS_Marketing.png" class="h-[95px] mr-4 z-10" alt="QS Marketing">
-          <div class="z-10 mt-6">
-            <div class="text-white font-bold text-[16px] leading-[1.1]" style="font-family: var(--fB);">International Master in<br>Digital Marketing<br><span class="text-[10px] font-normal italic">with Specialization in AI</span></div>
-            <div class="text-white/80 text-[13px] mt-1" style="font-family: var(--fS);">Spain</div>
+        <div class="glass-panel glass-panel-3d rounded-lg p-3 flex items-center relative overflow-hidden shadow-xl" style="min-height: 105px; border-left: 4px solid var(--G-hi)">
+          <div class="absolute right-2 top-1 text-[85px] font-black text-white/10 leading-none pointer-events-none drop-shadow-md" style="font-family: var(--fB);">#09</div>
+          <img src="src/Rankings/QS_Marketing.png" class="h-[85px] mr-3 z-10 drop-shadow-md" alt="QS Marketing">
+          <div class="z-10 mt-5">
+            <div class="text-white font-bold text-[13px] leading-[1.1] text-shadow" style="font-family: var(--fB);">Master in Intl. &<br>Digital Marketing</div>
+            <div class="text-white/60 text-[11px] mt-1" style="font-family: var(--fS);">Spain</div>
           </div>
         </div>
 
-        <!-- #08 Finanzas -->
-        <div class="glass-panel glass-panel-3d rounded-lg p-4 flex items-center relative overflow-hidden" style="min-height: 120px;">
-          <div class="absolute right-0 top-[40%] -translate-y-1/2 text-[100px] font-black text-white/30 leading-none pointer-events-none" style="font-family: var(--fB);">#08</div>
-          <img src="src/Rankings/QS_Finanzas.png" class="h-[95px] mr-4 z-10" alt="QS Finanzas">
-          <div class="z-10 mt-6">
-            <div class="text-white font-bold text-[16px] leading-[1.1]" style="font-family: var(--fB);">Master in<br>Finance, Fintech<br>& Strategic Control</div>
-            <div class="text-white/80 text-[13px] mt-1" style="font-family: var(--fS);">Spain</div>
+        <!-- Row 3 -->
+        <div class="glass-panel glass-panel-3d rounded-lg p-3 flex items-center relative overflow-hidden shadow-xl" style="min-height: 105px; border-left: 4px solid var(--G-hi)">
+          <div class="absolute right-2 top-1 text-[85px] font-black text-white/10 leading-none pointer-events-none drop-shadow-md" style="font-family: var(--fB);">#08</div>
+          <img src="src/Rankings/QS_Finanzas.png" class="h-[85px] mr-3 z-10 drop-shadow-md" alt="QS Finance">
+          <div class="z-10 mt-5">
+            <div class="text-white font-bold text-[13px] leading-[1.1] text-shadow" style="font-family: var(--fB);">Master in Corp.<br>Finance & Fintech</div>
+            <div class="text-white/60 text-[11px] mt-1" style="font-family: var(--fS);">Spain</div>
           </div>
         </div>
 
-        <!-- #03 International Trade -->
-        <div class="glass-panel glass-panel-3d rounded-lg p-4 flex items-center relative overflow-hidden" style="min-height: 120px;">
-          <div class="absolute right-0 top-[40%] -translate-y-1/2 text-[100px] font-black text-white/30 leading-none pointer-events-none" style="font-family: var(--fB);">#03</div>
-          <img src="src/Rankings/QS_International_Trade.png" class="h-[95px] mr-4 z-10" alt="QS Intl Trade">
-          <div class="z-10 mt-6">
-            <div class="text-white font-bold text-[16px] leading-[1.1]" style="font-family: var(--fB);">International<br>Trade</div>
-            <div class="text-white/80 text-[13px] mt-1" style="font-family: var(--fS);">Spain</div>
+        <div class="glass-panel glass-panel-3d rounded-lg p-3 flex items-center relative overflow-hidden shadow-xl" style="min-height: 105px; border-left: 4px solid var(--G-hi)">
+          <div class="absolute right-2 top-1 text-[85px] font-black text-white/10 leading-none pointer-events-none drop-shadow-md" style="font-family: var(--fB);">#03</div>
+          <img src="src/Rankings/QS_International_Trade.png" class="h-[85px] mr-3 z-10 drop-shadow-md" alt="QS Intl Trade">
+          <div class="z-10 mt-5">
+            <div class="text-white font-bold text-[13px] leading-[1.1] text-shadow" style="font-family: var(--fB);">International<br>Trade</div>
+            <div class="text-white/60 text-[11px] mt-1" style="font-family: var(--fS);">Spain</div>
           </div>
         </div>
 
-        <!-- #13 Gestión Riesgos -->
-        <div class="glass-panel glass-panel-3d rounded-lg p-4 flex items-center relative overflow-hidden" style="min-height: 120px;">
-          <div class="absolute right-0 top-[40%] -translate-y-1/2 text-[100px] font-black text-white/30 leading-none pointer-events-none" style="font-family: var(--fB);">#13</div>
-          <img src="src/Rankings/QS_GEstion_de_Riesgos.png" class="h-[95px] mr-4 z-10" alt="QS Riesgos">
-          <div class="z-10 mt-6">
-            <div class="text-white font-bold text-[16px] leading-[1.1]" style="font-family: var(--fB);">Master's Degree in<br>Risk Management<br>in Organizations</div>
-            <div class="text-white/80 text-[13px] mt-1" style="font-family: var(--fS);">Spain</div>
+        <!-- Row 4 -->
+        <div class="glass-panel glass-panel-3d rounded-lg p-3 flex items-center relative overflow-hidden shadow-xl" style="min-height: 105px; border-left: 4px solid var(--G-hi)">
+          <div class="absolute right-2 top-1 text-[85px] font-black text-white/10 leading-none pointer-events-none drop-shadow-md" style="font-family: var(--fB);">#13</div>
+          <img src="src/Rankings/QS_GEstion_de_Riesgos.png" class="h-[85px] mr-3 z-10 drop-shadow-md" alt="QS Risk">
+          <div class="z-10 mt-5">
+            <div class="text-white font-bold text-[13px] leading-[1.1] text-shadow" style="font-family: var(--fB);">Master in Org.<br>Risk Management</div>
+            <div class="text-white/60 text-[11px] mt-1" style="font-family: var(--fS);">Spain</div>
           </div>
         </div>
 
-        <!-- #09 International MBA -->
-        <div class="glass-panel glass-panel-3d rounded-lg p-4 flex items-center relative overflow-hidden" style="min-height: 120px;">
-          <div class="absolute right-0 top-[40%] -translate-y-1/2 text-[100px] font-black text-white/30 leading-none pointer-events-none" style="font-family: var(--fB);">#09</div>
-          <img src="src/Rankings/QS_International_MBA.png" class="h-[95px] mr-4 z-10" alt="QS Intl MBA">
-          <div class="z-10 mt-6">
-            <div class="text-white font-bold text-[16px] leading-[1.1]" style="font-family: var(--fB);">International<br>MBA</div>
-            <div class="text-white/80 text-[13px] mt-1" style="font-family: var(--fS);">Spain</div>
+        <div class="glass-panel glass-panel-3d rounded-lg p-3 flex items-center relative overflow-hidden shadow-xl" style="min-height: 105px; border-left: 4px solid var(--G-hi)">
+          <div class="absolute right-2 top-1 text-[85px] font-black text-white/10 leading-none pointer-events-none drop-shadow-md" style="font-family: var(--fB);">#09</div>
+          <img src="src/Rankings/QS_International_MBA.png" class="h-[85px] mr-3 z-10 drop-shadow-md" alt="QS Intl MBA">
+          <div class="z-10 mt-5">
+            <div class="text-white font-bold text-[13px] leading-[1.1] text-shadow" style="font-family: var(--fB);">International<br>MBA</div>
+            <div class="text-white/60 text-[11px] mt-1" style="font-family: var(--fS);">Spain</div>
           </div>
         </div>
 
       </div>
-    </div>
 
-    </div><!-- /legacy grid wrapper -->
+    </div>
 
   </div>
 </div>
