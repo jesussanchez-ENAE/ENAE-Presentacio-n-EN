@@ -157,7 +157,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a0b0b;font-family:
 /* Slide transition overlay (angular diagonal multi-layer) */
 .trans-overlay {
   position:fixed;inset:0;pointer-events:none;z-index:100;
-  clip-path:polygon(-8% 0, 0 0, 8% 100%, 0 100%);
+  clip-path:polygon(-8% 0, 100% 0, 108% 100%, 0 100%);
   transform:translateX(-120%);
   will-change:transform;
 }
@@ -1581,10 +1581,11 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a0b0b;font-family:
       clone.classList.add('on');
       
       // Reset anime.js inline styles to make sure PDF renders fully visible content
-      clone.querySelectorAll('.ey, .tm b, .tm i, .tm l, .tm span, h1, h2, h3, .acc, .anim-up > *, .logo-grid > *, .vbar').forEach(el => {
+      clone.querySelectorAll('.ey, .tm b, .tm i, .tm l, .tm span, h1, h2, h3, .acc, .anim-up > *, .logo-grid > *, .vbar, .photo-reveal').forEach(el => {
         el.style.opacity = '';
         el.style.transform = '';
         el.style.transformOrigin = '';
+        el.style.clipPath = 'none';
       });
 
       // Fix for PDF: Make clones position relative so they stack vertically
@@ -1592,6 +1593,9 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a0b0b;font-family:
       // Ensure page break after each slide
       clone.style.pageBreakAfter = 'always';
       clone.style.overflow = 'hidden';
+      clone.style.transform = 'none';
+      clone.style.opacity = '1';
+      clone.style.clipPath = 'none';
       printContainer.appendChild(clone);
     });
     
@@ -1603,14 +1607,21 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a0b0b;font-family:
 
 
 
+    const prevHtmlOverflow = document.documentElement.style.overflow;
+    const prevBodyOverflow = document.body.style.overflow;
+    document.documentElement.style.overflow = 'visible';
+    document.body.style.overflow = 'visible';
+
     html2pdf().set({
       margin: 0,
       filename: 'Presentacion_ENAE.pdf',
       image: { type: 'jpeg', quality: 0.98 },
-      html2canvas: { scale: 2, useCORS: true, letterRendering: true },
+      html2canvas: { scale: 2, useCORS: true, letterRendering: true, windowWidth: 1920, windowHeight: 1080 * ss.length, scrollY: 0, scrollX: 0 },
       jsPDF: { unit: 'px', format: [1920, 1080], orientation: 'landscape' }
     }).from(printContainer).save().then(() => {
       document.body.removeChild(printContainer);
+      document.documentElement.style.overflow = prevHtmlOverflow;
+      document.body.style.overflow = prevBodyOverflow;
       this.textContent = originalBtnText;
       this.disabled = false;
     });
