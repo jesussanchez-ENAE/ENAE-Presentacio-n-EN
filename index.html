@@ -90,12 +90,56 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a0b0b;font-family:
 .rule-angular > .frag.f3{width:22px;clip-path:polygon(0 0,100% 0,90% 100%,0 100%);opacity:0.28}
 .rule-angular.on-dark{--c:rgba(255,255,255,0.9)}
 .rule-angular.center{margin:0 auto}
+.rule-angular.lg{height:10px;gap:4px}
+.rule-angular.lg::before{width:72px}
+.rule-angular.lg::after{width:22px}
+.rule-angular.lg > .frag.f2{width:12px}
+.rule-angular.lg > .frag.f3{width:36px}
+.rule-angular.vertical{flex-direction:column;height:auto;width:6px;gap:3px}
+.rule-angular.vertical::before{width:100%;height:44px;clip-path:polygon(0 0,100% 0,100% 88%,0 100%)}
+.rule-angular.vertical::after{width:100%;height:14px;clip-path:polygon(0 0,100% 0,100% 100%,0 12%)}
+.rule-angular.vertical > .frag.f2{width:100%;height:8px;clip-path:polygon(0 0,100% 0,100% 100%,0 20%)}
+.rule-angular.vertical > .frag.f3{width:100%;height:22px;clip-path:polygon(0 0,100% 0,100% 90%,0 100%);opacity:0.28}
+
+/* ── Angular photo clip — signature ENAE en fotos hero ── */
+/* Corte angular en esquina bottom-right imitando la ruptura de la "E" */
+.photo-angular{clip-path:polygon(0 0, 100% 0, 100% 88%, 96% 100%, 0 100%)}
+.photo-angular-tl{clip-path:polygon(0 4%, 4% 0, 100% 0, 100% 100%, 0 100%)}
+.photo-angular-br{clip-path:polygon(0 0, 100% 0, 100% 92%, 92% 100%, 0 100%)}
+
+/* Eyebrow angular corner cut */
+.ey.angular::before{
+  content:'';display:inline-block;width:0;height:0;
+  border-style:solid;border-width:0 0 5px 8px;
+  border-color:transparent transparent currentColor transparent;
+  margin-right:8px;background:none;opacity:1;
+}
 
 /* ── Reveal utilities ── */
 .reveal{overflow:hidden;position:relative}
 .reveal-txt{display:inline-block;will-change:transform,opacity}
+
+/* ── SAFETY NET: si anime.js falla, forzar visibilidad tras 2s ── */
+/* Los elementos de una slide activa siempre deben ser visibles como fallback */
+.s.on .ey,
+.s.on .tm b,
+.s.on .tm i,
+.s.on .tm l,
+.s.on .tm span,
+.s.on .acc,
+.s.on .rule-angular,
+.s.on .hero-p,
+.s.on .lead-p,
+.s.on .anim-up > *{
+  animation: reveal-fallback 0.001s 2s forwards;
+}
+@keyframes reveal-fallback{
+  to{opacity:1;transform:none;clip-path:none}
+}
+
 @media (prefers-reduced-motion: reduce){
   .anim-up>*, .reveal-txt, .slide-in{opacity:1 !important;transform:none !important;clip-path:none !important;filter:none !important}
+  .s.on .ey, .s.on .tm b, .s.on .tm i, .s.on .tm l, .s.on .tm span, .s.on .acc, .s.on .rule-angular, .s.on .hero-p, .s.on .lead-p{opacity:1 !important;transform:none !important;clip-path:none !important}
   *{animation-duration:0.001ms !important;transition-duration:0.001ms !important}
 }
 /* Slide transition overlay (angular diagonal) */
@@ -341,7 +385,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a0b0b;font-family:
      Layout: full bleed foto + overlay diagonal + título mixto izq + KPI strip bottom
 ═══════════════════════════════════════ -->
 <div class="s on" id="s1">
-  <div class="photo photo-overlay-dark" style="background-image:url('src/img/portada_Europe.jpg'); background-position: center; background-size: cover;"></div>
+  <div class="photo photo-overlay-dark photo-angular" style="background-image:url('src/img/portada_Europe.jpg'); background-position: center; background-size: cover;"></div>
   <img src="src/logos/SIMBOLO-ENAE-BLANCO.png" class="wm" style="font-size:640px;right:-120px;top:-140px; height:1em; width:auto; opacity:0.05; transform: rotate(-44deg);" alt="E">
   <div class="grain"></div>
 
@@ -351,43 +395,55 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a0b0b;font-family:
       <img src="data:image/png;base64,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" style="height:48px;width:auto" alt="ENAE">
       <div style="display:flex;flex-direction:column;gap:6px;text-align:right;margin-top:14px">
         <span style="font-family:var(--fB);font-weight:500;font-size:10px;letter-spacing:.42em;text-transform:uppercase;color:rgba(255,255,255,.5)">Lead · Your · Future</span>
-        <span style="font-family:var(--fS2);font-style:italic;font-size:12px;color:rgba(255,255,255,.4);letter-spacing:0.02em">Vol. I — Chapter 01</span>
+        <span style="font-family:var(--fS2);font-style:italic;font-size:12px;color:rgba(255,255,255,.4);letter-spacing:0.02em">Murcia · 37.99° N · 1.13° W</span>
       </div>
     </div>
 
     <!-- Título mixto -->
     <div>
-      <p class="ey" style="color:var(--G-hi)">A New Chapter Begins</p>
+      <p class="ey" style="color:var(--G-hi)">Trained by the Mediterranean · Ready for the World</p>
       <div class="tm">
         <div class="relative z-10">
           <b class="block text-white" style="font-size:118px;line-height:1.02;letter-spacing:-0.028em;font-weight:700">Your Gateway to</b>
           <i class="block text-white" style="font-family:var(--fS2);font-weight:900;font-style:italic;font-size:170px;line-height:1.0;letter-spacing:-0.025em;margin-top:-4px">Global Business</i>
-          <span class="block" style="font-family:var(--fS2);font-style:italic;font-weight:400;color:rgba(255,255,255,0.7);font-size:34px;margin-top:26px;letter-spacing:0.005em">Excellence · Innovation · International Impact</span>
+          <span class="block" style="font-family:var(--fS2);font-style:italic;font-weight:400;color:rgba(255,255,255,0.7);font-size:34px;margin-top:26px;letter-spacing:0.005em">Since 1988. Under 300 days of sun. Reaching 50 countries.</span>
         </div>
       </div>
       <div class="acc" style="margin-top:34px"></div>
 
-      <!-- KPI strip — sin numeración decorativa, con signature angular rule -->
-      <div style="display:flex;align-items:center;gap:20px;margin-top:20px;margin-bottom:18px">
-        <div class="rule-angular"><span class="frag f2"></span><span class="frag f3"></span></div>
-        <span style="font-family:var(--fB);font-weight:600;font-size:10px;color:rgba(255,255,255,0.5);letter-spacing:0.42em;text-transform:uppercase">The School at a Glance</span>
+      <!-- Signature angular + label editorial -->
+      <div style="display:flex;align-items:center;gap:24px;margin-top:26px;margin-bottom:26px">
+        <div class="rule-angular lg"><span class="frag f2"></span><span class="frag f3"></span></div>
+        <span style="font-family:var(--fB);font-weight:600;font-size:11px;color:rgba(255,255,255,0.6);letter-spacing:0.42em;text-transform:uppercase">From Murcia to the World</span>
       </div>
-      <div class="anim-up" style="display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(255,255,255,.14);padding-top:30px;gap:0">
-        <div style="padding:0 40px 0 0;border-right:1px solid rgba(255,255,255,.1);position:relative">
-          <div class="kpi-num" data-count="30" data-prefix="+" style="font-family:var(--fD);font-weight:800;font-size:82px;color:var(--W);line-height:0.9;letter-spacing:-0.035em">+30</div>
-          <div style="font-family:var(--fS);font-style:italic;font-weight:400;font-size:16px;color:rgba(255,255,255,.62);margin-top:12px;letter-spacing:0.01em">years of excellence</div>
+
+      <!-- Hero KPI + editorial line: asymmetric, no big-number-template -->
+      <div class="anim-up" style="display:flex;align-items:flex-end;gap:56px;border-top:1px solid rgba(255,255,255,.14);padding-top:26px">
+
+        <!-- Drop-cap hero KPI -->
+        <div style="display:flex;align-items:baseline;gap:6px;flex-shrink:0">
+          <span style="font-family:var(--fS);font-style:italic;font-weight:400;font-size:48px;color:var(--G-hi);line-height:1;letter-spacing:-0.02em">+</span>
+          <span class="kpi-num" data-count="30" style="font-family:var(--fS);font-style:italic;font-weight:900;font-size:180px;color:var(--W);line-height:0.85;letter-spacing:-0.05em">30</span>
+          <span style="font-family:var(--fS);font-style:italic;font-weight:400;font-size:44px;color:rgba(255,255,255,0.6);line-height:1;margin-left:8px;letter-spacing:-0.015em">years</span>
         </div>
-        <div style="padding:0 40px;border-right:1px solid rgba(255,255,255,.1)">
-          <div class="kpi-num" data-count="13" data-prefix="+" data-suffix="K" style="font-family:var(--fD);font-weight:800;font-size:82px;color:var(--W);line-height:0.9;letter-spacing:-0.035em">+13K</div>
-          <div style="font-family:var(--fS);font-style:italic;font-weight:400;font-size:16px;color:rgba(255,255,255,.62);margin-top:12px;letter-spacing:0.01em">alumni worldwide</div>
-        </div>
-        <div style="padding:0 40px;border-right:1px solid rgba(255,255,255,.1)">
-          <div class="kpi-num" data-count="50" data-suffix="+" style="font-family:var(--fD);font-weight:800;font-size:82px;color:var(--W);line-height:0.9;letter-spacing:-0.035em">50+</div>
-          <div style="font-family:var(--fS);font-style:italic;font-weight:400;font-size:16px;color:rgba(255,255,255,.62);margin-top:12px;letter-spacing:0.01em">countries represented</div>
-        </div>
-        <div style="padding:0 40px">
-          <div class="kpi-num" data-count="200" data-prefix="+" style="font-family:var(--fD);font-weight:800;font-size:82px;color:var(--W);line-height:0.9;letter-spacing:-0.035em">+200</div>
-          <div style="font-family:var(--fS);font-style:italic;font-weight:400;font-size:16px;color:rgba(255,255,255,.62);margin-top:12px;letter-spacing:0.01em">partner companies</div>
+
+        <!-- Editorial secondary line -->
+        <div style="flex:1;display:flex;flex-direction:column;gap:14px;padding-bottom:14px">
+          <div style="font-family:var(--fB);font-weight:600;font-size:10px;color:var(--G-hi);letter-spacing:0.42em;text-transform:uppercase">Legacy since 1988</div>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:32px;border-top:1px solid rgba(255,255,255,0.1);padding-top:16px">
+            <div>
+              <div class="kpi-num" data-count="13" data-prefix="+" data-suffix="K" style="font-family:var(--fD);font-weight:700;font-size:36px;color:var(--W);line-height:1;letter-spacing:-0.02em">+13K</div>
+              <div style="font-family:var(--fS);font-style:italic;font-weight:400;font-size:13px;color:rgba(255,255,255,.55);margin-top:6px">alumni worldwide</div>
+            </div>
+            <div style="border-left:1px solid rgba(255,255,255,0.08);padding-left:32px">
+              <div class="kpi-num" data-count="50" data-suffix="+" style="font-family:var(--fD);font-weight:700;font-size:36px;color:var(--W);line-height:1;letter-spacing:-0.02em">50+</div>
+              <div style="font-family:var(--fS);font-style:italic;font-weight:400;font-size:13px;color:rgba(255,255,255,.55);margin-top:6px">countries every year</div>
+            </div>
+            <div style="border-left:1px solid rgba(255,255,255,0.08);padding-left:32px">
+              <div class="kpi-num" data-count="200" data-prefix="+" style="font-family:var(--fD);font-weight:700;font-size:36px;color:var(--W);line-height:1;letter-spacing:-0.02em">+200</div>
+              <div style="font-family:var(--fS);font-style:italic;font-weight:400;font-size:13px;color:rgba(255,255,255,.55);margin-top:6px">partner companies</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -406,7 +462,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a0b0b;font-family:
   <img src="src/logos/SIMBOLO-ENAE-BLANCO.png" class="wm" style="font-size:520px;left:-70px;bottom:-100px; height:1em; width:auto; opacity:0.06; transform: rotate(7deg);" alt="E">
 
   <div style="position:relative;z-index:2;width:54%;height:100%;padding:var(--padv) var(--pad);display:flex;flex-direction:column;justify-content:center">
-    <p class="ey" style="color:rgba(255,255,255,.85)">About ENAE · Since 1988</p>
+    <p class="ey" style="color:rgba(255,255,255,.85)">Southeastern Spain · Since 1988</p>
     <div class="tm">
       <i style="font-family:var(--fS2);font-weight:900;font-size:88px;letter-spacing:-0.02em">What is</i>
       <b style="font-size:132px;font-weight:800;letter-spacing:-0.04em;line-height:0.92;margin-top:-4px">ENAE.</b>
@@ -416,9 +472,13 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a0b0b;font-family:
     <p class="hero-p" style="font-family:var(--fS2);font-style:italic;font-weight:300;font-size:26px;color:rgba(255,255,255,.94);line-height:1.5;max-width:600px;margin-bottom:20px;position:relative;z-index:2;letter-spacing:-0.005em">
       The <strong style="font-family:var(--fS2);font-weight:700;color:var(--W);font-style:italic">leading business school in southeastern Spain</strong>, founded under the University of Murcia Foundation — a non-profit institution bridging academia and private enterprise since 1988.
     </p>
-    <p style="font-family:var(--fB);font-weight:300;font-size:19px;color:rgba(255,255,255,.72);line-height:1.7;max-width:560px;margin-bottom:26px;position:relative;z-index:2">
+    <p style="font-family:var(--fB);font-weight:300;font-size:19px;color:rgba(255,255,255,.72);line-height:1.7;max-width:560px;margin-bottom:22px;position:relative;z-index:2">
       Over <strong style="font-weight:600;color:var(--W)">three decades</strong> training leaders for the global market, supported by 200+ partner companies and two public universities.
     </p>
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:22px;position:relative;z-index:2">
+      <div class="rule-angular on-dark"><span class="frag f2"></span><span class="frag f3"></span></div>
+      <span style="font-family:var(--fB);font-weight:600;font-size:10px;color:rgba(255,255,255,0.6);letter-spacing:0.42em;text-transform:uppercase">Five reasons that make ENAE, ENAE</span>
+    </div>
     <div style="display:flex;flex-direction:column;gap:10px;position:relative;z-index:2">
       <div style="display:flex;align-items:center;gap:14px;font-family:var(--fB);font-weight:500;font-size:15px;color:rgba(255,255,255,0.95);letter-spacing:0.01em"><div style="width:5px;height:5px;min-width:5px;background:var(--W);border-radius:50%;box-shadow:0 0 0 3px rgba(255,255,255,0.15)"></div>70% of faculty are active business professionals</div>
       <div style="display:flex;align-items:center;gap:14px;font-family:var(--fB);font-weight:500;font-size:15px;color:rgba(255,255,255,0.95);letter-spacing:0.01em"><div style="width:5px;height:5px;min-width:5px;background:var(--W);border-radius:50%;box-shadow:0 0 0 3px rgba(255,255,255,0.15)"></div>AI & digital transformation at the core of every programme</div>
@@ -439,20 +499,61 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a0b0b;font-family:
   <div class="absolute inset-0 z-0 bg-[url('src/img/ENAE/_0N7A2272.JPG')] bg-center bg-cover"></div>
   <div class="absolute inset-0 z-0 bg-gradient-to-br from-[#3b0610]/95 via-[#5c0b1a]/90 to-[#8a122b]/85"></div>
 
-  <!-- We use a grid or flex with gap to perfectly split 1920 in half -->
-  <div class="flex h-full w-full px-16 py-[80px] relative z-10">
-    
+  <!-- Full vertical layout: HERO banner top + 2 columns below -->
+  <div class="h-full w-full px-16 pt-[54px] pb-[54px] relative z-10 flex flex-col">
+
+    <!-- HERO Banner — highlights the crown jewel -->
+    <div style="display:flex;align-items:center;gap:44px;padding:22px 32px 22px 0;border-bottom:1px solid rgba(255,255,255,0.15);margin-bottom:26px;position:relative">
+      <!-- Vertical angular signature on the far left -->
+      <div class="rule-angular vertical" style="height:96px;flex-shrink:0"><span class="frag f2"></span><span class="frag f3"></span></div>
+      <!-- Left: mini header -->
+      <div style="flex-shrink:0;padding-right:44px;border-right:1px solid rgba(255,255,255,0.12)">
+        <div style="font-family:var(--fB);font-weight:600;font-size:10px;color:rgba(255,255,255,0.55);letter-spacing:0.42em;text-transform:uppercase;margin-bottom:6px">Rankings 2025</div>
+        <div class="text-white" style="font-family:var(--fS);font-style:italic;font-weight:900;font-size:56px;line-height:0.9;letter-spacing:-0.02em">Ranked.</div>
+      </div>
+      <!-- Center: THE crown jewel -->
+      <div style="display:flex;align-items:baseline;gap:22px;flex:1">
+        <div style="display:flex;align-items:baseline">
+          <span style="font-family:var(--fS);font-style:italic;font-weight:400;font-size:36px;color:var(--G-hi);letter-spacing:-0.02em">#</span>
+          <span style="font-family:var(--fS);font-style:italic;font-weight:900;font-size:140px;color:var(--W);line-height:0.85;letter-spacing:-0.05em">3</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px;padding-bottom:10px">
+          <div style="font-family:var(--fB);font-weight:600;font-size:10px;color:var(--G-hi);letter-spacing:0.42em;text-transform:uppercase">QS Global · Worldwide</div>
+          <div style="font-family:var(--fS);font-style:italic;font-weight:700;font-size:28px;color:var(--W);line-height:1.05;letter-spacing:-0.01em;max-width:520px">Master in International&nbsp;Trade</div>
+          <div style="font-family:var(--fB);font-weight:300;font-size:13px;color:rgba(255,255,255,0.55);letter-spacing:0.005em">Top-3 program in the world · QS Business Masters Rankings 2025</div>
+        </div>
+      </div>
+      <!-- Right: also-ranked micro-strip -->
+      <div style="flex-shrink:0;text-align:right;padding-left:36px;border-left:1px solid rgba(255,255,255,0.12)">
+        <div style="font-family:var(--fB);font-weight:600;font-size:9.5px;color:rgba(255,255,255,0.5);letter-spacing:0.42em;text-transform:uppercase;margin-bottom:14px">Also world-ranked</div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div style="display:flex;align-items:baseline;gap:10px;justify-content:flex-end">
+            <span style="font-family:var(--fS);font-style:italic;font-weight:900;font-size:26px;color:var(--W);line-height:1">#6</span>
+            <span style="font-family:var(--fB);font-weight:400;font-size:12px;color:rgba(255,255,255,0.6);letter-spacing:0.005em">Global Executive MBA · QS</span>
+          </div>
+          <div style="display:flex;align-items:baseline;gap:10px;justify-content:flex-end">
+            <span style="font-family:var(--fS);font-style:italic;font-weight:900;font-size:26px;color:var(--W);line-height:1">#6</span>
+            <span style="font-family:var(--fB);font-weight:400;font-size:12px;color:rgba(255,255,255,0.6);letter-spacing:0.005em">Logistics &amp; Operations · QS</span>
+          </div>
+          <div style="display:flex;align-items:baseline;gap:10px;justify-content:flex-end">
+            <span style="font-family:var(--fS);font-style:italic;font-weight:900;font-size:26px;color:var(--W);line-height:1">#10</span>
+            <span style="font-family:var(--fB);font-weight:400;font-size:12px;color:rgba(255,255,255,0.6);letter-spacing:0.005em">AI &amp; Data Science · QS</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Legacy grid layout below hero -->
+    <div class="flex w-full flex-1 relative">
+
     <!-- LEFT COLUMN -->
     <div class="w-[45%] flex flex-col pr-8 h-full">
-      
+
       <!-- Top header -->
-      <div class="flex justify-between items-start mb-6">
+      <div class="flex justify-between items-start mb-4">
         <div>
-          <div style="font-family:var(--fB);font-weight:600;font-size:11px;color:rgba(255,255,255,0.55);letter-spacing:0.42em;text-transform:uppercase;margin-bottom:8px">Chapter 03 · Excellence</div>
-          <div class="leading-none text-white" style="font-family:var(--fS2);font-style:italic;font-weight:900;font-size:82px;letter-spacing:-0.02em">Rankings.</div>
-        </div>
-        <div class="text-[26px] leading-[1.35] w-[52%] mt-4" style="font-family:var(--fS2);font-style:italic;font-weight:400;color:rgba(255,255,255,0.9);letter-spacing:-0.005em">
-          ENAE is among the<br>best Business Schools<br>in Spain.
+          <div style="font-family:var(--fB);font-weight:600;font-size:11px;color:rgba(255,255,255,0.55);letter-spacing:0.42em;text-transform:uppercase;margin-bottom:6px">National Recognition</div>
+          <div class="leading-none text-white" style="font-family:var(--fS2);font-style:italic;font-weight:700;font-size:34px;letter-spacing:-0.015em">in Spain.</div>
         </div>
       </div>
 
@@ -629,6 +730,8 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a0b0b;font-family:
 
       </div>
     </div>
+
+    </div><!-- /legacy grid wrapper -->
 
   </div>
 </div>
@@ -832,8 +935,8 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a0b0b;font-family:
   <img src="src/logos/SIMBOLO-ENAE-BLANCO.png" class="wm" style="font-size:460px;right:18%;top:-60px; height:1em; width:auto; opacity:0.06; transform: rotate(3deg);" alt="E">
   <div style="position:relative;z-index:2;width:72%;height:100%;padding:var(--padv) var(--pad);display:flex;flex-direction:column">
     <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px">
-      <p class="ey">Academic Offer · 2026</p>
-      <span style="font-family:var(--fS2);font-style:italic;font-size:13px;color:rgba(255,255,255,.4);letter-spacing:0.04em">Chapter 04</span>
+      <p class="ey">Nine Programs · Taught in English</p>
+      <span style="font-family:var(--fS2);font-style:italic;font-size:13px;color:rgba(255,255,255,.4);letter-spacing:0.04em">Ranked Top-10 QS · Top-6 Forbes</span>
     </div>
     <div class="tm">
       <i style="font-family:var(--fS2);font-weight:900;font-size:64px;letter-spacing:-0.02em">Master's Programs</i>
@@ -929,7 +1032,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a0b0b;font-family:
     
     <!-- Header -->
     <div style="text-align:center; margin-bottom: 44px;">
-        <p class="ey" style="margin-bottom:12px;justify-content:center">Learning Approach · Methodology</p>
+        <p class="ey" style="margin-bottom:12px;justify-content:center">70% Active Professionals · Zero Ivory Tower</p>
         <div class="tm" style="display:flex; flex-direction:column; align-items:center;">
           <b style="font-size:64px;font-weight:700;letter-spacing:-0.028em">Learning that</b>
           <i style="font-family:var(--fS2);font-weight:900;font-size:88px;letter-spacing:-0.02em;margin-top:2px">Drives Real Change</i>
@@ -995,7 +1098,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a0b0b;font-family:
   <img src="src/logos/SIMBOLO-ENAE-BLANCO.png" class="wm" style="font-size:520px;right:-70px;top:-50px; height:1em; width:auto; opacity:0.06; transform: rotate(-29deg);" alt="E">
   <div style="position:relative;z-index:2;height:100%;padding:var(--padv) var(--pad);display:flex;flex-direction:column;justify-content:space-between">
     <div>
-      <p class="ey" style="color:var(--G-hi)">International Community · Chapter 06</p>
+      <p class="ey" style="color:var(--G-hi)">50 Countries · 5 Continents · One Campus</p>
       <div class="tm">
         <b style="font-size:76px;font-weight:700;letter-spacing:-0.028em">A Truly Global</b>
         <i style="font-family:var(--fS2);font-weight:900;font-size:92px;letter-spacing:-0.02em;margin-top:-2px">Business School</i>
@@ -1004,11 +1107,17 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a0b0b;font-family:
       <div class="acc" style="margin-top:30px"></div>
       <p style="font-family:var(--fB);font-weight:300;font-size:19px;color:rgba(255,255,255,.72);line-height:1.7;max-width:680px;position:relative;z-index:2;letter-spacing:0.005em">Students from over 50 countries. Alumni building careers on 5 continents. ENAE is a truly international community united by ambition and the drive to lead.</p>
     </div>
-    <div class="anim-up" style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
+    <div>
+      <div style="display:flex;align-items:center;gap:16px;margin-bottom:22px;position:relative;z-index:2">
+        <div class="rule-angular"><span class="frag f2"></span><span class="frag f3"></span></div>
+        <span style="font-family:var(--fB);font-weight:600;font-size:10px;color:rgba(255,255,255,0.6);letter-spacing:0.42em;text-transform:uppercase">Community at a Glance</span>
+      </div>
+      <div class="anim-up" style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
       <div class="kbox"><div class="kpi-num font-sans font-extrabold text-[72px] text-white leading-none" data-count="13" data-prefix="+" data-suffix="K">+13K</div><div style="font-family:var(--fS);font-style:italic;font-size:16px;color:rgba(255,255,255,.66);margin-top:6px">alumni worldwide</div></div>
       <div class="kbox"><div class="kpi-num font-sans font-extrabold text-[72px] text-white leading-none" data-count="50" data-suffix="+">50+</div><div style="font-family:var(--fS);font-style:italic;font-size:16px;color:rgba(255,255,255,.66);margin-top:6px">nationalities every year</div></div>
       <div class="kbox"><div class="kpi-num" data-count="30" data-suffix="+" style="font-family:var(--fB);font-weight:800;font-size:72px;color:var(--W);line-height:1">30+</div><div style="font-family:var(--fS);font-style:italic;font-size:16px;color:rgba(255,255,255,.66);margin-top:6px">international agreements</div></div>
       <div class="kbox"><div class="kpi-num" data-count="5" style="font-family:var(--fB);font-weight:800;font-size:72px;color:var(--W);line-height:1">5</div><div style="font-family:var(--fS);font-style:italic;font-size:16px;color:rgba(255,255,255,.66);margin-top:6px">continents represented</div></div>
+      </div>
     </div>
   </div>
 </div>
@@ -1027,7 +1136,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a0b0b;font-family:
   <div class="vbar" style="left:48%"></div>
   <div style="position:relative;z-index:2;width:48%;height:100%;padding:var(--padv) var(--pad) 80px;display:flex;flex-direction:column;justify-content:center">
     <img src="src/logos/SIMBOLO-ENAE-BLANCO.png" class="wm" style="font-size:420px;left:-50px;bottom:-60px; height:1em; width:auto; opacity:0.06; transform: rotate(16deg);" alt="E">
-    <p class="ey">Campus Life · Chapter 07</p>
+    <p class="ey">Campus de Espinardo · 2,200 m²</p>
     <div class="tm">
       <i style="font-family:var(--fS2);font-weight:900;font-size:70px;letter-spacing:-0.02em">Campus &amp;</i>
       <b style="font-size:78px;font-weight:700;letter-spacing:-0.03em;margin-top:-2px">Experience.</b>
@@ -1059,7 +1168,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a0b0b;font-family:
     </div>
     <!-- Título -->
     <div>
-      <p class="ey" style="color:var(--G-hi)">Contact · Get Started</p>
+      <p class="ey" style="color:var(--G-hi)">One Reply from a Real Person</p>
       <div class="tm">
         <b style="font-size:88px;font-weight:700;letter-spacing:-0.03em">Ready to</b>
         <i style="font-family:var(--fS2);font-weight:900;font-size:104px;letter-spacing:-0.02em;margin-top:-4px">Lead Your Future?</i>
@@ -1130,29 +1239,35 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a0b0b;font-family:
     const cards = slide.querySelectorAll('.anim-up > *, .logo-grid > *');
     const photos = slide.querySelectorAll('.photo-reveal');
 
-    anime.remove([...ey,...titles,...acc,...rule,...paragraphs,...kpis,...cards,...photos]);
+    try{ anime.remove([...ey,...titles,...acc,...rule,...paragraphs,...kpis,...cards,...photos]); }catch(_){}
 
-    // Initial states
-    anime.set(ey, { opacity: 0, translateY: 14 });
-    anime.set(titles, { opacity: 0, translateY: 40, clipPath: 'inset(0 0 100% 0)' });
-    anime.set(acc, { scaleX: 0, transformOrigin: 'left center' });
-    anime.set(rule, { opacity: 0, translateX: -30 });
-    anime.set(paragraphs, { opacity: 0, translateY: 24 });
-    anime.set(cards, { opacity: 0, translateY: 32 });
-    anime.set(photos, { opacity: 0, clipPath: 'inset(0 100% 0 0)' });
+    // Initial states — clipPath aplicado con style directo (anime.set no lo soporta bien)
+    titles.forEach(el=>el.style.clipPath='inset(0 0 100% 0)');
+    photos.forEach(el=>el.style.clipPath='inset(0 100% 0 0)');
+    try{
+      anime.set(ey, { opacity: 0, translateY: 14 });
+      anime.set(titles, { opacity: 0, translateY: 40 });
+      anime.set(acc, { scaleX: 0, transformOrigin: 'left center' });
+      anime.set(rule, { opacity: 0, translateX: -30 });
+      anime.set(paragraphs, { opacity: 0, translateY: 24 });
+      anime.set(cards, { opacity: 0, translateY: 32 });
+      anime.set(photos, { opacity: 0 });
+    }catch(_){}
 
     const tl = anime.timeline({
       easing: 'cubicBezier(0.16,1,0.3,1)',
       duration: 900
     });
 
-    // 1. Photo reveal (from left edge)
+    // 1. Photo reveal (from left edge) — clipPath via style transition
     tl.add({
       targets: photos,
       opacity: [0, 1],
-      clipPath: ['inset(0 100% 0 0)', 'inset(0 0% 0 0)'],
       duration: 1100,
-      delay: anime.stagger(120)
+      delay: anime.stagger(120),
+      begin: ()=>photos.forEach((el,i)=>{
+        setTimeout(()=>{el.style.transition='clip-path 1100ms cubic-bezier(0.16,1,0.3,1)';el.style.clipPath='inset(0 0% 0 0)'}, i*120);
+      })
     })
     // 2. Eyebrow
     .add({
@@ -1161,14 +1276,16 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a0b0b;font-family:
       translateY: [14, 0],
       duration: 700
     }, '-=900')
-    // 3. Title mixto — clip reveal por línea
+    // 3. Title mixto — clip reveal por línea (clipPath en style directo tras animación)
     .add({
       targets: titles,
       opacity: [0, 1],
       translateY: [40, 0],
-      clipPath: ['inset(0 0 100% 0)', 'inset(0 0 0% 0)'],
       duration: 1100,
-      delay: anime.stagger(100)
+      delay: anime.stagger(100),
+      begin: ()=>titles.forEach((el,i)=>{
+        setTimeout(()=>{el.style.transition='clip-path 900ms cubic-bezier(0.16,1,0.3,1)';el.style.clipPath='inset(0 0 0% 0)'}, i*100);
+      })
     }, '-=650')
     // 4. Accent + rule-angular
     .add({
@@ -1218,17 +1335,19 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a0b0b;font-family:
     const direction=(nextIdx>c)?1:(nextIdx<c?-1:1);
 
     // Transition overlay sweep
-    if(!reduceMotion){
-      anime.set(trans,{transform:'translateX('+(direction>0?'-120%':'120%')+')'});
-      anime({
-        targets:trans,
-        translateX:[direction>0?'-120%':'120%',direction>0?'120%':'-120%'],
-        duration:900,easing:'cubicBezier(0.7,0,0.3,1)'
-      });
-      setTimeout(()=>doSwap(nextIdx),320);
-    } else {
-      doSwap(nextIdx);
-    }
+    try{
+      if(!reduceMotion){
+        anime.set(trans,{translateX: direction>0?'-120%':'120%'});
+        anime({
+          targets:trans,
+          translateX:[direction>0?'-120%':'120%', direction>0?'120%':'-120%'],
+          duration:900,easing:'cubicBezier(0.7,0,0.3,1)'
+        });
+        setTimeout(()=>doSwap(nextIdx),320);
+      } else {
+        doSwap(nextIdx);
+      }
+    }catch(e){doSwap(nextIdx);}
     setTimeout(()=>{busy=false},900);
   }
   function doSwap(nextIdx){
