@@ -217,25 +217,28 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a0b0b;font-family:
 
 /* ── Tarjeta dark (negro) — editorial ── */
 .card-n{
-  background:linear-gradient(180deg, rgba(20, 22, 21, 0.85) 0%, rgba(12, 14, 13, 0.9) 100%);
-  border-radius:4px;
-  border:1px solid rgba(255, 255, 255, 0.06);
+  background:linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%);
+  border-radius:6px;
+  border:1px solid rgba(255, 255, 255, 0.08);
+  border-top:1px solid rgba(255, 255, 255, 0.15);
+  box-shadow:0 20px 40px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.05);
   padding:26px 22px 22px;
   display:flex;flex-direction:column;
   position:relative;overflow:hidden;
-  backdrop-filter:blur(12px);
-  -webkit-backdrop-filter:blur(12px);
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+  will-change: transform;
 }
 .card-n::before{
   content:'';position:absolute;top:0;left:0;width:3px;height:34px;
   background:var(--G);transition:height 0.4s cubic-bezier(0.16,1,0.3,1);
 }
 .card-n:hover{
-  background:linear-gradient(180deg, rgba(28, 30, 29, 0.92) 0%, rgba(16, 18, 17, 0.95) 100%);
-  transform: translateY(-3px);
-  border-color: rgba(255, 255, 255, 0.12);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.5);
+  background:linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
+  transform: translateY(-6px);
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255,255,255,0.1);
 }
 .card-n:hover::before{height:100%}
 
@@ -365,9 +368,41 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a0b0b;font-family:
 /* Container for PDF Generation */
 #print-container { position: absolute; left: -9999px; top: 0; width: 1920px; }
 #print-container .s { position: relative; opacity: 1; pointer-events: auto; page-break-after: always; }
+#print-container .glass-panel-3d, #print-container .glass-panel-3d-wrap, #print-container .card-n {
+  transform: none !important;
+  transform-style: flat !important;
+  perspective: none !important;
+  box-shadow: none !important;
+}
 
 /* Custom w-16 */
 .w-16 { width: 8rem !important; }
+/* Antigravity Design Utilities */
+.glass-panel {
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-top: 1px solid rgba(255,255,255,0.15);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.05);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), background 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+.glass-panel:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.06);
+}
+.glass-panel-3d-wrap {
+  perspective: 1200px;
+  transform-style: preserve-3d;
+}
+.glass-panel-3d {
+  transform: rotateX(6deg) rotateY(-4deg);
+}
+.glass-panel-3d:hover {
+  transform: rotateX(0deg) rotateY(0deg) translateY(-6px);
+}
 </style>
 
 <!-- Tailwind CSS -->
@@ -531,7 +566,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a0b0b;font-family:
   <div class="absolute inset-0 z-0 bg-gradient-to-br from-[#3b0610]/95 via-[#5c0b1a]/90 to-[#8a122b]/85"></div>
 
   <!-- Full vertical layout: HERO banner top + 2 columns below -->
-  <div class="h-full w-full px-16 pt-[54px] pb-[54px] relative z-10 flex flex-col">
+  <div class="h-full w-full px-24 pt-[54px] pb-[80px] relative z-10 flex flex-col">
 
     <!-- HERO Banner — highlights the crown jewel -->
     <div style="display:flex;align-items:center;gap:44px;padding:22px 32px 22px 0;border-bottom:1px solid rgba(255,255,255,0.15);margin-bottom:26px;position:relative">
@@ -575,10 +610,10 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a0b0b;font-family:
     </div>
 
     <!-- Legacy grid layout below hero -->
-    <div class="flex w-full flex-1 relative">
+    <div class="flex w-full flex-1 relative mb-12">
 
     <!-- LEFT COLUMN -->
-    <div class="w-[45%] flex flex-col pr-8 h-full">
+    <div class="w-[45%] flex flex-col pr-8">
 
       <!-- Top header -->
       <div class="flex justify-between items-start mb-4">
@@ -595,23 +630,23 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a0b0b;font-family:
       </div>
 
       <!-- Forbes Grid -->
-      <div class="grid grid-cols-2 gap-4 mb-4">
-        <div class="bg-white/10 backdrop-blur-sm border border-white/10 rounded-lg p-6 flex flex-col justify-center items-center text-center relative overflow-hidden" style="min-height: 140px;">
+      <div class="grid grid-cols-2 gap-8 mb-6 glass-panel-3d-wrap">
+        <div class="glass-panel glass-panel-3d rounded-lg p-6 flex flex-col justify-center items-center text-center relative overflow-hidden" style="min-height: 140px;">
           <div class="absolute inset-0 flex justify-center items-center text-[100px] font-black leading-none text-white/20 pointer-events-none" style="font-family: var(--fB);">#06</div>
           <div class="relative z-10 font-bold text-[18px] text-white leading-tight mb-1" style="font-family: var(--fB);">Master in International Trade</div>
           <div class="relative z-10 text-[14px] text-white italic mt-1" style="font-family: 'Open Sans', sans-serif;">Category: Recent graduates &<br>young professionals</div>
         </div>
-        <div class="bg-white/10 backdrop-blur-sm border border-white/10 rounded-lg p-6 flex flex-col justify-center items-center text-center relative overflow-hidden" style="min-height: 140px;">
+        <div class="glass-panel glass-panel-3d rounded-lg p-6 flex flex-col justify-center items-center text-center relative overflow-hidden" style="min-height: 140px;">
           <div class="absolute inset-0 flex justify-center items-center text-[100px] font-black leading-none text-white/20 pointer-events-none" style="font-family: var(--fB);">#07</div>
           <div class="relative z-10 font-bold text-[18px] text-white leading-tight mb-1" style="font-family: var(--fB);">Global Executive MBA</div>
           <div class="relative z-10 text-[14px] text-white italic mt-1" style="font-family: 'Open Sans', sans-serif;">Category: Executive Programs</div>
         </div>
-        <div class="bg-white/10 backdrop-blur-sm border border-white/10 rounded-lg p-6 flex flex-col justify-center items-center text-center relative overflow-hidden" style="min-height: 140px;">
+        <div class="glass-panel glass-panel-3d rounded-lg p-6 flex flex-col justify-center items-center text-center relative overflow-hidden" style="min-height: 140px;">
           <div class="absolute inset-0 flex justify-center items-center text-[100px] font-black leading-none text-white/20 pointer-events-none" style="font-family: var(--fB);">#12</div>
           <div class="relative z-10 font-bold text-[18px] text-white leading-tight mb-1" style="font-family: var(--fB);">International MBA</div>
           <div class="relative z-10 text-[14px] text-white italic mt-1" style="font-family: 'Open Sans', sans-serif;">Category: MBA</div>
         </div>
-        <div class="bg-white/10 backdrop-blur-sm border border-white/10 rounded-lg p-6 flex flex-col justify-center items-center text-center relative overflow-hidden" style="min-height: 140px;">
+        <div class="glass-panel glass-panel-3d rounded-lg p-6 flex flex-col justify-center items-center text-center relative overflow-hidden" style="min-height: 140px;">
           <div class="absolute inset-0 flex justify-center items-center text-[100px] font-black leading-none text-white/20 pointer-events-none" style="font-family: var(--fB);">#04</div>
           <div class="relative z-10 font-bold text-[18px] text-white leading-tight mb-1" style="font-family: var(--fB);">Magistrae</div>
           <div class="relative z-10 text-[14px] text-white italic mt-1" style="font-family: 'Open Sans', sans-serif;">Category: Senior Management</div>
@@ -663,7 +698,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a0b0b;font-family:
     <div class="w-[10%] h-full mx-4"></div>
 
     <!-- RIGHT COLUMN (QS) -->
-    <div class="w-[45%] flex flex-col h-full pl-4 pr-16 pt-8">
+    <div class="w-[45%] flex flex-col pl-4 pr-16 pt-8">
       
       <!-- QS Top Stars -->
       <div class="flex items-center gap-6 mb-8 mt-6">
@@ -677,10 +712,10 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a0b0b;font-family:
       </div>
 
       <!-- QS Grid -->
-      <div class="grid grid-cols-2 gap-x-6 gap-y-4 flex-1">
+      <div class="grid grid-cols-2 gap-x-8 gap-y-6 flex-1 glass-panel-3d-wrap">
         
         <!-- #10 IA -->
-        <div class="bg-black/20 backdrop-blur-sm border border-white/5 rounded-lg p-4 flex items-center relative overflow-hidden" style="min-height: 120px;">
+        <div class="glass-panel glass-panel-3d rounded-lg p-4 flex items-center relative overflow-hidden" style="min-height: 120px;">
           <div class="absolute right-0 top-[40%] -translate-y-1/2 text-[100px] font-black text-white/30 leading-none pointer-events-none" style="font-family: var(--fB);">#10</div>
           <img src="src/Rankings/QS_IA_y_DataScience.png" class="h-[95px] mr-4 z-10" alt="QS IA">
           <div class="z-10 mt-6">
@@ -690,7 +725,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a0b0b;font-family:
         </div>
 
         <!-- #06 Logistica -->
-        <div class="bg-black/20 backdrop-blur-sm border border-white/5 rounded-lg p-4 flex items-center relative overflow-hidden" style="min-height: 120px;">
+        <div class="glass-panel glass-panel-3d rounded-lg p-4 flex items-center relative overflow-hidden" style="min-height: 120px;">
           <div class="absolute right-0 top-[40%] -translate-y-1/2 text-[100px] font-black text-white/30 leading-none pointer-events-none" style="font-family: var(--fB);">#06</div>
           <img src="src/Rankings/QS_Logistica.png" class="h-[95px] mr-4 z-10" alt="QS Logistica">
           <div class="z-10 mt-6">
@@ -700,7 +735,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a0b0b;font-family:
         </div>
 
         <!-- #06 Global Exec MBA -->
-        <div class="bg-black/20 backdrop-blur-sm border border-white/5 rounded-lg p-4 flex items-center relative overflow-hidden" style="min-height: 120px;">
+        <div class="glass-panel glass-panel-3d rounded-lg p-4 flex items-center relative overflow-hidden" style="min-height: 120px;">
           <div class="absolute right-0 top-[40%] -translate-y-1/2 text-[100px] font-black text-white/30 leading-none pointer-events-none" style="font-family: var(--fB);">#06</div>
           <img src="src/Rankings/QS_Global_Executive_MBA.png" class="h-[95px] mr-4 z-10" alt="QS Global Exec">
           <div class="z-10 mt-6">
@@ -710,7 +745,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a0b0b;font-family:
         </div>
 
         <!-- #09 Marketing Digital -->
-        <div class="bg-black/20 backdrop-blur-sm border border-white/5 rounded-lg p-4 flex items-center relative overflow-hidden" style="min-height: 120px;">
+        <div class="glass-panel glass-panel-3d rounded-lg p-4 flex items-center relative overflow-hidden" style="min-height: 120px;">
           <div class="absolute right-0 top-[40%] -translate-y-1/2 text-[100px] font-black text-white/30 leading-none pointer-events-none" style="font-family: var(--fB);">#09</div>
           <img src="src/Rankings/QS_Marketing.png" class="h-[95px] mr-4 z-10" alt="QS Marketing">
           <div class="z-10 mt-6">
@@ -720,7 +755,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a0b0b;font-family:
         </div>
 
         <!-- #08 Finanzas -->
-        <div class="bg-black/20 backdrop-blur-sm border border-white/5 rounded-lg p-4 flex items-center relative overflow-hidden" style="min-height: 120px;">
+        <div class="glass-panel glass-panel-3d rounded-lg p-4 flex items-center relative overflow-hidden" style="min-height: 120px;">
           <div class="absolute right-0 top-[40%] -translate-y-1/2 text-[100px] font-black text-white/30 leading-none pointer-events-none" style="font-family: var(--fB);">#08</div>
           <img src="src/Rankings/QS_Finanzas.png" class="h-[95px] mr-4 z-10" alt="QS Finanzas">
           <div class="z-10 mt-6">
@@ -730,7 +765,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a0b0b;font-family:
         </div>
 
         <!-- #03 International Trade -->
-        <div class="bg-black/20 backdrop-blur-sm border border-white/5 rounded-lg p-4 flex items-center relative overflow-hidden" style="min-height: 120px;">
+        <div class="glass-panel glass-panel-3d rounded-lg p-4 flex items-center relative overflow-hidden" style="min-height: 120px;">
           <div class="absolute right-0 top-[40%] -translate-y-1/2 text-[100px] font-black text-white/30 leading-none pointer-events-none" style="font-family: var(--fB);">#03</div>
           <img src="src/Rankings/QS_International_Trade.png" class="h-[95px] mr-4 z-10" alt="QS Intl Trade">
           <div class="z-10 mt-6">
@@ -740,7 +775,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a0b0b;font-family:
         </div>
 
         <!-- #13 Gestión Riesgos -->
-        <div class="bg-black/20 backdrop-blur-sm border border-white/5 rounded-lg p-4 flex items-center relative overflow-hidden" style="min-height: 120px;">
+        <div class="glass-panel glass-panel-3d rounded-lg p-4 flex items-center relative overflow-hidden" style="min-height: 120px;">
           <div class="absolute right-0 top-[40%] -translate-y-1/2 text-[100px] font-black text-white/30 leading-none pointer-events-none" style="font-family: var(--fB);">#13</div>
           <img src="src/Rankings/QS_GEstion_de_Riesgos.png" class="h-[95px] mr-4 z-10" alt="QS Riesgos">
           <div class="z-10 mt-6">
@@ -750,7 +785,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a0b0b;font-family:
         </div>
 
         <!-- #09 International MBA -->
-        <div class="bg-black/20 backdrop-blur-sm border border-white/5 rounded-lg p-4 flex items-center relative overflow-hidden" style="min-height: 120px;">
+        <div class="glass-panel glass-panel-3d rounded-lg p-4 flex items-center relative overflow-hidden" style="min-height: 120px;">
           <div class="absolute right-0 top-[40%] -translate-y-1/2 text-[100px] font-black text-white/30 leading-none pointer-events-none" style="font-family: var(--fB);">#09</div>
           <img src="src/Rankings/QS_International_MBA.png" class="h-[95px] mr-4 z-10" alt="QS Intl MBA">
           <div class="z-10 mt-6">
@@ -811,6 +846,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a0b0b;font-family:
       <div style="text-align:right;padding-top:18px">
         <div style="font-family:var(--fS);font-style:italic;font-size:14px;color:rgba(255,255,255,0.55);letter-spacing:0.04em">SOUTHEASTERN SPAIN</div>
         <div style="font-family:var(--fB);font-weight:700;font-size:11px;color:rgba(255,255,255,0.4);letter-spacing:0.3em;margin-top:8px">37.99° N · 1.13° W</div>
+        <div id="murcia-weather-widget" style="margin-top:16px; font-family:var(--fS); font-weight:600; font-size:24px; color:white; display:flex; gap:12px; align-items:center; justify-content:flex-end;"></div>
       </div>
     </div>
 
@@ -838,8 +874,8 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a0b0b;font-family:
     </div>
 
     <!-- Bottom: two editorial blocks (The Experience · Practical Info) -->
-    <div style="display:grid;grid-template-columns:1.1fr 1fr;gap:80px;border-top:1px solid rgba(255,255,255,0.12);padding-top:32px">
-      <div>
+    <div class="glass-panel-3d-wrap" style="display:grid;grid-template-columns:1.1fr 1fr;gap:40px;padding-top:16px">
+      <div class="glass-panel glass-panel-3d" style="padding: 32px; border-radius: 12px;">
         <div style="display:flex;align-items:center;gap:14px;margin-bottom:18px">
           <div style="width:28px;height:1px;background:var(--G)"></div>
           <h2 style="font-family:var(--fB);font-weight:700;font-size:13px;color:var(--W);letter-spacing:0.32em;text-transform:uppercase">The Experience</h2>
@@ -848,7 +884,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a0b0b;font-family:
           Beaches twenty minutes from the lecture hall. Tapas at midnight in the Plaza de las Flores. A vibrant university city of 460,000 — affordable, walkable, and rooted in the slow Mediterranean rhythm that makes a year of study feel like a chapter of life.
         </p>
       </div>
-      <div>
+      <div class="glass-panel glass-panel-3d" style="padding: 32px; border-radius: 12px;">
         <div style="display:flex;align-items:center;gap:14px;margin-bottom:18px">
           <div style="width:28px;height:1px;background:var(--G)"></div>
           <h2 style="font-family:var(--fB);font-weight:700;font-size:13px;color:var(--W);letter-spacing:0.32em;text-transform:uppercase">Practical Info</h2>
@@ -909,10 +945,10 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a0b0b;font-family:
         <div style="flex:1;height:1px;background:rgba(255,255,255,0.12)"></div>
       </div>
 
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid rgba(255,255,255,0.1);padding-top:30px">
+      <div class="glass-panel-3d-wrap" style="display:grid;grid-template-columns:repeat(3,1fr);gap:40px;padding-top:16px">
 
         <!-- Sea -->
-        <div style="padding:0 40px 0 0;border-right:1px solid rgba(255,255,255,0.1)">
+        <div class="glass-panel glass-panel-3d" style="padding:32px; border-radius:12px;">
           <div style="font-family:var(--fB);font-weight:700;font-size:11px;color:var(--G);letter-spacing:0.36em;text-transform:uppercase;margin-bottom:14px">01 · The Sea</div>
           <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:8px">
             <span style="font-family:var(--fB);font-weight:800;font-size:64px;color:var(--W);line-height:0.92;letter-spacing:-0.025em">250</span>
@@ -925,7 +961,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a0b0b;font-family:
         </div>
 
         <!-- Peaks -->
-        <div style="padding:0 40px;border-right:1px solid rgba(255,255,255,0.1)">
+        <div class="glass-panel glass-panel-3d" style="padding:32px; border-radius:12px;">
           <div style="font-family:var(--fB);font-weight:700;font-size:11px;color:var(--G);letter-spacing:0.36em;text-transform:uppercase;margin-bottom:14px">02 · The Peaks</div>
           <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:8px">
             <span style="font-family:var(--fB);font-weight:800;font-size:64px;color:var(--W);line-height:0.92;letter-spacing:-0.025em">6</span>
@@ -938,7 +974,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a0b0b;font-family:
         </div>
 
         <!-- Heritage -->
-        <div style="padding:0 0 0 40px">
+        <div class="glass-panel glass-panel-3d" style="padding:32px; border-radius:12px;">
           <div style="font-family:var(--fB);font-weight:700;font-size:11px;color:var(--G);letter-spacing:0.36em;text-transform:uppercase;margin-bottom:14px">03 · The Soul</div>
           <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:8px">
             <span style="font-family:var(--fB);font-weight:800;font-size:64px;color:var(--W);line-height:0.92;letter-spacing:-0.025em">2,000</span>
@@ -974,7 +1010,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a0b0b;font-family:
       <b style="font-size:76px;font-weight:700;letter-spacing:-0.03em;margin-top:-2px">in English.</b>
     </div>
     <div class="acc" style="margin:26px 0 30px"></div>
-    <div class="anim-up" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;flex:1">
+    <div class="anim-up glass-panel-3d-wrap" style="display:grid;grid-template-columns:repeat(3,1fr);gap:32px;flex:1;padding:16px;">
       <div class="card-n"><div style="font-family:var(--fS2);font-style:italic;font-weight:700;font-size:22px;color:var(--W);line-height:1.2;margin-bottom:8px;letter-spacing:-0.01em">International MBA</div><div style="font-family:var(--fB);font-weight:600;text-transform:uppercase;font-size:10px;letter-spacing:0.28em;color:var(--G-hi);margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,0.08)">General Management · Leadership</div><div style="font-family:var(--fB);font-weight:300;font-size:14.5px;color:rgba(255,255,255,.72);line-height:1.65;flex:1;letter-spacing:0.005em">Comprehensive programme for professionals ready to lead global organisations across strategy, finance and innovation.</div></div>
       <div class="card-n"><div style="font-family:var(--fS2);font-style:italic;font-weight:700;font-size:22px;color:var(--W);line-height:1.2;margin-bottom:8px;letter-spacing:-0.01em">Global Executive MBA</div><div style="font-family:var(--fB);font-weight:600;text-transform:uppercase;font-size:10px;letter-spacing:0.28em;color:var(--G-hi);margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,0.08)">Executive Strategy · Global Leadership</div><div style="font-family:var(--fB);font-weight:300;font-size:14.5px;color:rgba(255,255,255,.72);line-height:1.65;flex:1;letter-spacing:0.005em">Designed for executives to manage global businesses and drive economic wealth while enabling inclusive development and social progress.</div></div>
       <div class="card-n"><div style="font-family:var(--fS2);font-style:italic;font-weight:700;font-size:22px;color:var(--W);line-height:1.2;margin-bottom:8px;letter-spacing:-0.01em">Master in International Trade</div><div style="font-family:var(--fB);font-weight:600;text-transform:uppercase;font-size:10px;letter-spacing:0.28em;color:var(--G-hi);margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,0.08)">Trade · Export · Global Markets</div><div style="font-family:var(--fB);font-weight:300;font-size:14.5px;color:rgba(255,255,255,.72);line-height:1.65;flex:1;letter-spacing:0.005em">Ranked Top 3 QS worldwide and #2 El Mundo. Lead international trade operations and global negotiations.</div></div>
@@ -1028,7 +1064,8 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a0b0b;font-family:
     </div>
     
     <!-- Right Column: Curriculum Card -->
-    <div style="width:46%;display:flex;flex-direction:column;gap:18px;background:rgba(25,27,26,0.5);backdrop-filter:blur(15px);-webkit-backdrop-filter:blur(15px);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:36px">
+    <div class="glass-panel-3d-wrap" style="width:46%;">
+      <div class="glass-panel glass-panel-3d" style="display:flex;flex-direction:column;gap:18px;border-radius:12px;padding:36px;height:100%">
       <div style="font-family:var(--fB);font-weight:700;font-size:24px;color:var(--W);margin-bottom:8px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:12px">Academic Program Structure</div>
       
       <div>
@@ -1044,6 +1081,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a0b0b;font-family:
       <div>
         <div style="font-family:var(--fB);font-weight:700;font-size:17px;color:var(--G)">Specialization Courses</div>
         <div style="font-family:var(--fB);font-weight:300;font-size:14px;color:rgba(255,255,255,0.75);margin-top:4px;line-height:1.5">Digital Transformation, Innovation Management, Big Data &amp; Analytics, AI &amp; Machine Learning.</div>
+      </div>
       </div>
     </div>
     
@@ -1209,20 +1247,38 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a0b0b;font-family:
     </div>
     <!-- 3 contact cards -->
     <div class="anim-up" style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px">
-      <div style="background:linear-gradient(180deg,rgba(20,22,21,0.85) 0%,rgba(10,12,11,0.9) 100%);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-radius:4px;border:1px solid rgba(255,255,255,0.06);border-top:2px solid var(--G-hi);padding:26px 24px 22px;position:relative;overflow:hidden">
-        <div style="font-family:var(--fB);font-weight:700;font-size:15px;color:var(--W);margin-bottom:4px">Pedro Kuvshinov Saubion</div>
-        <div style="font-family:var(--fS);font-style:italic;font-size:12px;color:rgba(255,255,255,.55);margin-bottom:14px">BDM — International Relations</div>
-        <div style="font-family:var(--fB);font-weight:300;font-size:13px;color:rgba(255,255,255,.7);line-height:1.9">+34 647 751 937<br>pedro.kuvshinov@enae.es</div>
+      <!-- Contact 1 -->
+      <div style="background:var(--G);padding:40px 24px;position:relative;overflow:hidden;text-align:left">
+        <img src="src/Agentes/Jesus_Gambin_02_c.jpg" style="width:130px;height:130px;border-radius:50%;object-fit:cover;margin:0 auto 30px;display:block" alt="Jesús Gambín">
+        <div style="font-family:var(--fB);font-weight:700;font-size:24px;color:var(--W);margin-bottom:4px;letter-spacing:-0.02em">Jesús Gambín</div>
+        <div style="font-family:var(--fS);font-weight:400;font-size:18px;color:var(--W);margin-bottom:28px;line-height:1.2">Associate Dean<br>International Relations</div>
+        <div style="font-family:var(--fB);font-weight:700;font-size:14px;color:var(--W);line-height:1.6;display:flex;gap:8px">
+          <span>&gt;</span><span>jesus.gambin@enae.es</span>
+        </div>
       </div>
-      <div style="background:linear-gradient(180deg,rgba(20,22,21,0.85) 0%,rgba(10,12,11,0.9) 100%);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-radius:4px;border:1px solid rgba(255,255,255,0.06);border-top:2px solid var(--G-hi);padding:26px 24px 22px;position:relative;overflow:hidden">
-        <div style="font-family:var(--fB);font-weight:700;font-size:15px;color:var(--W);margin-bottom:4px">Admissions Office</div>
-        <div style="font-family:var(--fS);font-style:italic;font-size:12px;color:rgba(255,255,255,.55);margin-bottom:14px">International Programs</div>
-        <div style="font-family:var(--fB);font-weight:300;font-size:13px;color:rgba(255,255,255,.7);line-height:1.9">+34 968 899 899<br>info@enae.es</div>
+      <!-- Contact 2 -->
+      <div style="background:var(--G);padding:40px 24px;position:relative;overflow:hidden;text-align:left">
+        <img src="src/Agentes/Minerva Rojas foto 1.jpg" style="width:130px;height:130px;border-radius:50%;object-fit:cover;margin:0 auto 30px;display:block;object-position:top" alt="Minerva Rojas">
+        <div style="font-family:var(--fB);font-weight:700;font-size:24px;color:var(--W);margin-bottom:4px;letter-spacing:-0.02em">Minerva Rojas</div>
+        <div style="font-family:var(--fS);font-weight:400;font-size:18px;color:var(--W);margin-bottom:28px;line-height:1.2">Business Development<br>Manager</div>
+        <div style="font-family:var(--fB);font-weight:700;font-size:14px;color:var(--W);line-height:1.6;display:flex;gap:8px">
+          <span>&gt;</span><span>minerva.rojas@enae.es</span>
+        </div>
+        <div style="font-family:var(--fB);font-weight:700;font-size:14px;color:var(--W);line-height:1.6;display:flex;gap:8px">
+          <span>&gt;</span><span style="display:flex;align-items:center;gap:4px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> +34 678 496 045</span>
+        </div>
       </div>
-      <div style="background:linear-gradient(180deg,rgba(20,22,21,0.85) 0%,rgba(10,12,11,0.9) 100%);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-radius:4px;border:1px solid rgba(255,255,255,0.06);border-top:2px solid var(--G-hi);padding:26px 24px 22px;position:relative;overflow:hidden">
-        <div style="font-family:var(--fB);font-weight:700;font-size:15px;color:var(--W);margin-bottom:4px">Campus Universitario de Espinardo</div>
-        <div style="font-family:var(--fS);font-style:italic;font-size:12px;color:rgba(255,255,255,.55);margin-bottom:14px">Edificio ENAE nº 13 · CP 30100 Murcia</div>
-        <div style="font-family:var(--fB);font-weight:700;font-size:15px;color:var(--W)">www.enae.es</div>
+      <!-- Contact 3 -->
+      <div style="background:var(--G);padding:40px 24px;position:relative;overflow:hidden;text-align:left">
+        <img src="src/Agentes/Pedro.jpeg" style="width:130px;height:130px;border-radius:50%;object-fit:cover;margin:0 auto 30px;display:block" alt="Pedro Kuvshinov">
+        <div style="font-family:var(--fB);font-weight:700;font-size:24px;color:var(--W);margin-bottom:4px;letter-spacing:-0.02em">Pedro Kuvshinov</div>
+        <div style="font-family:var(--fS);font-weight:400;font-size:18px;color:var(--W);margin-bottom:28px;line-height:1.2">Business Development<br>Manager</div>
+        <div style="font-family:var(--fB);font-weight:700;font-size:14px;color:var(--W);line-height:1.6;display:flex;gap:8px">
+          <span>&gt;</span><span>pedro.kuvshinov@enae.es</span>
+        </div>
+        <div style="font-family:var(--fB);font-weight:700;font-size:14px;color:var(--W);line-height:1.6;display:flex;gap:8px">
+          <span>&gt;</span><span style="display:flex;align-items:center;gap:4px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> +34 637 826 555</span>
+        </div>
       </div>
     </div>
     <!-- Claim -->
@@ -1628,5 +1684,51 @@ html,body{width:100%;height:100%;overflow:hidden;background:#0a0b0b;font-family:
   });
 })();
 </script>
+
+<!-- Murcia Real-Time Weather Widget Script -->
+<script>
+(function() {
+  const widget = document.getElementById('murcia-weather-widget');
+  if(!widget) return;
+
+  function getWeatherEmoji(code) {
+    // WMO Weather interpretation codes (https://open-meteo.com/en/docs)
+    if (code === 0) return '☀️'; // Clear sky
+    if (code === 1 || code === 2) return '🌤️'; // Mainly clear, partly cloudy
+    if (code === 3) return '☁️'; // Overcast
+    if (code >= 45 && code <= 48) return '🌫️'; // Fog
+    if (code >= 51 && code <= 67) return '🌧️'; // Drizzle / Rain
+    if (code >= 71 && code <= 77) return '❄️'; // Snow
+    if (code >= 80 && code <= 82) return '🌧️'; // Rain showers
+    if (code >= 95 && code <= 99) return '🌩️'; // Thunderstorm
+    return '🌡️';
+  }
+
+  async function fetchWeather() {
+    try {
+      const res = await fetch('https://api.open-meteo.com/v1/forecast?latitude=37.987&longitude=-1.13&current_weather=true');
+      const data = await res.json();
+      const temp = Math.round(data.current_weather.temperature);
+      const code = data.current_weather.weathercode;
+      const emoji = getWeatherEmoji(code);
+      
+      // Initial render
+      renderWidget(temp, emoji);
+
+      // Refresh every hour
+      setInterval(() => fetchWeather(), 3600000);
+    } catch (e) {
+      console.error("Failed to load weather data", e);
+    }
+  }
+
+  function renderWidget(temp, emoji) {
+    widget.innerHTML = `<span style="font-weight:400; opacity:0.8;">Tiempo actual:</span> <span>${temp}°C</span> <span style="font-size:36px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.3)); margin-left:4px;">${emoji}</span>`;
+  }
+
+  fetchWeather();
+})();
+</script>
+
 </body>
 </html>
